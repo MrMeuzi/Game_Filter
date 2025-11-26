@@ -1,0 +1,24 @@
+.nav__wrapper{
+
+}
+.nav__container {
+
+}
+.nav__logo {
+  display: inline-block;
+  width: 9rem;
+  height: 9rem;
+  background-image: url('/images/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+.nav__favorites {
+display: inline-block;
+  width: 9rem;
+  height: 9rem;
+  background-image: url('/images/favorites.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: black;
+}
