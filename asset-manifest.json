@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Game_Filter/static/css/main.6707c7bb.css",
-    "main.js": "/Game_Filter/static/js/main.028bb3fc.js",
-    "static/js/453.609a9210.chunk.js": "/Game_Filter/static/js/453.609a9210.chunk.js",
-    "static/media/logo.png": "/Game_Filter/static/media/logo.b1a4df5e0d25ee44f15b.png",
-    "static/media/favorites.png": "/Game_Filter/static/media/favorites.d2d933a07811a311926d.png",
-    "index.html": "/Game_Filter/index.html",
-    "main.6707c7bb.css.map": "/Game_Filter/static/css/main.6707c7bb.css.map",
-    "main.028bb3fc.js.map": "/Game_Filter/static/js/main.028bb3fc.js.map",
-    "453.609a9210.chunk.js.map": "/Game_Filter/static/js/453.609a9210.chunk.js.map"
+    "main.css": "/g/Game_Filter/static/css/main.b1eb9ac8.css",
+    "main.js": "/g/Game_Filter/static/js/main.ec460464.js",
+    "static/js/453.609a9210.chunk.js": "/g/Game_Filter/static/js/453.609a9210.chunk.js",
+    "static/media/logo.png": "/g/Game_Filter/static/media/logo.b1a4df5e0d25ee44f15b.png",
+    "static/media/favorites.png": "/g/Game_Filter/static/media/favorites.d2d933a07811a311926d.png",
+    "index.html": "/g/Game_Filter/index.html",
+    "main.b1eb9ac8.css.map": "/g/Game_Filter/static/css/main.b1eb9ac8.css.map",
+    "main.ec460464.js.map": "/g/Game_Filter/static/js/main.ec460464.js.map",
+    "453.609a9210.chunk.js.map": "/g/Game_Filter/static/js/453.609a9210.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6707c7bb.css",
-    "static/js/main.028bb3fc.js"
+    "static/css/main.b1eb9ac8.css",
+    "static/js/main.ec460464.js"
   ]
 }
