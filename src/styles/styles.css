@@ -1,24 +1,98 @@
+* {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
 .nav__wrapper{
 
 }
 .nav__container {
-
+display: grid;
+grid-template-columns: auto 1fr auto;
+align-items: center;
+gap: 3rem;
+margin-bottom: .5rem;
 }
 .nav__logo {
   display: inline-block;
   width: 9rem;
   height: 9rem;
-  background-image: url('/images/logo.png');
+  background-image: url('/public/images/logo.png');
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: black;
+  transition: transform 0.2s;
+}
+.nav__logo:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+.nav__logo:active {
+  transform: scale(0.95);
+  transition: transform 0.1s;
 }
 .nav__favorites {
 display: inline-block;
   width: 9rem;
   height: 9rem;
-  background-image: url('/images/favorites.png');
+  background-image: url('/public/images/favorites.png');
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: black;
+  transition: transform 0.2s;
+}
+.nav__favorites:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+.nav__favorites:active {
+  transform: scale(0.95);
+  transition: transform 0.1s;
+}
+.input__wrapper {
+  height: 4rem;
+  display: flex;
+  padding: 0rem;
+  margin-bottom: 1.5rem;
+  border-radius: 1rem;
+  align-items: center;
+
+  border: 0.24rem solid #142e4c;
+  border-color: #142e4c;
+  overflow: hidden;
+  width: 100%;
+}
+.input__input {
+  margin: 1rem;
+  font-size: 2rem;;
+  border: none;
+  outline: none;
+  flex: 1;
+  margin-right: .75rem;
+}
+.input__button {
+  width: 3rem;
+  height: 100%;
+  background-image: url('/public/images/deleteSearch.png');
+  align-self: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #133151;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.input__button:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
+.input__button:active {
+  transform: scale(1);
+  transition: transform 0.1s;
+}
+.line{
+  height: 0.1rem;
+  background-color: #142e4c;
+  width: 100%;
+  margin-bottom: 2rem;
 }
