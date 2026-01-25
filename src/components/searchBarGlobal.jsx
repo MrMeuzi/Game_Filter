@@ -9,9 +9,10 @@ export default function SearchBarGlobal({onSearchChange, searchText}) {
       keyboardEvent.preventDefault();
       onSearchChange(inputValue)
     }}>
-      <input className="input__input" placeholder="Найти на Game_Filter" onChange={(inputEdit) => {
+      <input className="input__input" placeholder="Найти на Game_Filter" type="search" enterKeyHint="search" onChange={(inputEdit) => {
         setInputValue(inputEdit.target.value);
       }} value={inputValue} onKeyDown={(KeyboardEvent) => KeyboardEvent.key === "Enter" ? onSearchChange(KeyboardEvent.currentTarget.value) : undefined} />
+      <button type="submit" style={{ display: "none" }} aria-hidden="true" />
       {inputValue !== "" && (<button className="input__button" type="button"
       onClick = {() => {
         onSearchChange("");
