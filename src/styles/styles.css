@@ -488,16 +488,21 @@ justify-self: start;
   transition: transform 0.1s;
 }
   .input__button {
-    width: 17%;
+    width: 2.5rem;  
     height: 2.5rem;
+    flex: 0 0 auto;
   }
   .input__wrapper {
     height: auto;
     margin-top: .7rem;
   }
   .input__input {
-    margin: .5rem;
-    font-size: 1.02rem;
+    padding-left: .4rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    flex: 1;
+    margin: 0;      
+    min-width: 0; 
   }
     .nav__container {
     grid-template-columns: 1fr 3fr;
