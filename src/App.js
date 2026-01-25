@@ -6,7 +6,9 @@ import Home from './pages/home.jsx';
 import Favorites from './pages/favorites.jsx';
 
 function App() {
-    const urlSostoyanie = new URLSearchParams(window.location.search);
+    const hash = window.location.hash;
+    const queryString = hash.split("?")[1] || ""
+    const urlSostoyanie = new URLSearchParams(queryString);
     const urlSostoyanieGet = urlSostoyanie.get("search") || "";
     const [searchText, setSearchText] = useState(urlSostoyanieGet);
   return (
