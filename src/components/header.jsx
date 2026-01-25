@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SearchBarGlobal from "./SearchBarGlobal.jsx";
+import SearchBarGlobal from "./searchBarGlobal.jsx";
 
 export default function Header({setSearchText, searchText}) {
   return (
