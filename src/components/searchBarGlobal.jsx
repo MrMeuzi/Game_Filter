@@ -5,16 +5,19 @@ export default function SearchBarGlobal({onSearchChange, searchText}) {
     setInputValue(searchText ?? "");
   }, [searchText]);
   return (
-    <div className="input__wrapper">
+    <form className="input__wrapper" onSubmit={(keyboardEvent) => {
+      keyboardEvent.preventDefault();
+      onSearchChange(inputValue)
+    }}>
       <input className="input__input" placeholder="Найти на Game_Filter" onChange={(inputEdit) => {
         setInputValue(inputEdit.target.value);
       }} value={inputValue} onKeyDown={(KeyboardEvent) => KeyboardEvent.key === "Enter" ? onSearchChange(KeyboardEvent.currentTarget.value) : undefined} />
-      {inputValue !== "" && (<button className="input__button"
+      {inputValue !== "" && (<button className="input__button" type="button"
       onClick = {() => {
         onSearchChange("");
         setInputValue("");
       }}
       ></button>)}
-    </div>
+    </form>
   );
 }
