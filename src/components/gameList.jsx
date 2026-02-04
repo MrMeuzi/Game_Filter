@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getGamesList } from "../api/games";
 import wishlist_icon from "../images/wishlist.png";
+import wishlist_icon_added from "../images/wishlist_added.png"
 // Иконки платформ
 import psicon from "../images/platforms/playstation.png";
 import xboxicon from "../images/platforms/xbox.png";
@@ -12,7 +13,7 @@ import androidicon from "../images/platforms/android.png";
 import linuxicon from "../images/platforms/linux.png";
 import wiiuicon from "../images/platforms/wiiu.png";
 
-export default function GameList({ page, setTotalPages, textSearch, gameCountSet, countGame }) {
+export default function GameList({ Store = {}, addInStore, page, setTotalPages, textSearch, gameCountSet, countGame }) {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -25,10 +26,10 @@ export default function GameList({ page, setTotalPages, textSearch, gameCountSet
     }
     fetchGames();
   }, [page, setTotalPages, textSearch]);
-  
+
   useEffect(() => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}, [page]);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [page]);
 
   const clones = (name) => {
     const nameName = name.toLowerCase();
@@ -67,7 +68,7 @@ export default function GameList({ page, setTotalPages, textSearch, gameCountSet
         const genres = genresList.map((genre) => genre?.name).filter(Boolean);
         const genresLimit = genres.slice(0, 3);
         const hiddenGenres = genres.length - genresLimit.length;
-        
+
         const platforms = game.platforms ?? [];
         const consoles = platforms.map((platform) => platform.platform?.name).filter(Boolean);
         const siblings = consoles.map(clones);
@@ -99,24 +100,32 @@ export default function GameList({ page, setTotalPages, textSearch, gameCountSet
 
               {
                 <span
-                className={`gameList__item-title ${longTitle ? 'gameList__item-title__long' : ''}`}
+                  className={`gameList__item-title ${longTitle ? 'gameList__item-title__long' : ''}`}
                 >
                   {title}
                 </span>
-                
+
               }
 
               {<div className={`gameList__item-genres ${hiddenGenres > 0 ? 'gameList__item-genres__mores' : ''}`}>
                 {
                   genresLimit.map((genre) => (
                     <span className="gameList__genre-item">{genre}</span>
-      ))}{hiddenGenres > 0 && (<span className="gameList__genre-item__more">+{hiddenGenres}</span>)}
+                  ))}{hiddenGenres > 0 && (<span className="gameList__genre-item__more">+{hiddenGenres}</span>)}
               </div>}
-              
-              
+
+
               <div className="gameList__item-release-wishlist">
                 <span className="gameList__item-release">Дата выхода: <br></br>{game.released}</span>
-                <img src={wishlist_icon} className="gameList__widhList-icon" />
+                <img src={Object.hasOwn(Store, game.id) ? wishlist_icon_added : wishlist_icon} className="gameList__widhList-icon" onClick={() => addInStore({
+                  id: game.id,
+                  title: game.name,
+                  background_image: game.background_image,
+                  rating: game.rating,
+                  platforms: allSiblings,
+                  genres: genres,
+                  released: game.released
+                })} />
               </div>
             </div>
           </div>

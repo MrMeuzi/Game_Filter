@@ -4,7 +4,7 @@ import GameList from "../components/gameList";
 import PagesChoose from "../components/pagesChoose";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Home({searchText, setSearchText}) {
+export default function Home({searchText, setSearchText, Store, addInStore}) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -47,7 +47,7 @@ export default function Home({searchText, setSearchText}) {
   return (
     <div>
       <SearchResult textSearch={searchText} countGame={gameCount}/>
-      <GameList page={page} setTotalPages={setTotalPages} textSearch={searchText} gameCountSet={setGameCount} countGame={gameCount}/>
+      <GameList page={page} setTotalPages={setTotalPages} textSearch={searchText} gameCountSet={setGameCount} countGame={gameCount} Store={Store} addInStore={addInStore}/>
       <PagesChoose page={page} totalPages={totalPages} onPageChange={setPage} gameCount={gameCount}/>
     </div>
   );
