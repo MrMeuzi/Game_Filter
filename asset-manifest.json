@@ -1,12 +1,13 @@
 {
   "files": {
     "main.css": "/Game_Filter/static/css/main.1be4d870.css",
-    "main.js": "/Game_Filter/static/js/main.421f4551.js",
+    "main.js": "/Game_Filter/static/js/main.ee9c24c8.js",
     "static/js/453.609a9210.chunk.js": "/Game_Filter/static/js/453.609a9210.chunk.js",
     "static/media/deleteSearch.png": "/Game_Filter/static/media/deleteSearch.1995b9b6ca55eaaf5ca2.png",
     "static/media/favorites.png": "/Game_Filter/static/media/favorites.7e4f4f92570a2c234636.png",
     "static/media/xbox.png": "/Game_Filter/static/media/xbox.b4ae9d0ae0835780e6ad.png",
     "static/media/wishlist.png": "/Game_Filter/static/media/wishlist.12ecbbe6e7c4afd9633a.png",
+    "static/media/wishlist_added.png": "/Game_Filter/static/media/wishlist_added.98f683be542d1ac38d84.png",
     "static/media/logo.png": "/Game_Filter/static/media/logo.b1a4df5e0d25ee44f15b.png",
     "static/media/linux.png": "/Game_Filter/static/media/linux.a9d7472eff786bb712df.png",
     "static/media/filter.png": "/Game_Filter/static/media/filter.06eee3198da1a3ac38ba.png",
@@ -21,11 +22,11 @@
     "static/media/loopa.png": "/Game_Filter/static/media/loopa.36ef4317d73ffdda62b8.png",
     "index.html": "/Game_Filter/index.html",
     "main.1be4d870.css.map": "/Game_Filter/static/css/main.1be4d870.css.map",
-    "main.421f4551.js.map": "/Game_Filter/static/js/main.421f4551.js.map",
+    "main.ee9c24c8.js.map": "/Game_Filter/static/js/main.ee9c24c8.js.map",
     "453.609a9210.chunk.js.map": "/Game_Filter/static/js/453.609a9210.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1be4d870.css",
-    "static/js/main.421f4551.js"
+    "static/js/main.ee9c24c8.js"
   ]
 }
