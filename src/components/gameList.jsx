@@ -12,20 +12,36 @@ import iosicon from "../images/platforms/ios.png";
 import androidicon from "../images/platforms/android.png";
 import linuxicon from "../images/platforms/linux.png";
 import wiiuicon from "../images/platforms/wiiu.png";
-
-export default function GameList({ Store = {}, addInStore, page, setTotalPages, textSearch, gameCountSet, countGame }) {
+import { Link } from "react-router-dom";
+import appleiiicon from "../images/platforms/AppleII.png";
+import atarist from "../images/platforms/AtariST.png";
+import classicmcintoshicon from "../images/platforms/ClassicMacintosh.png";
+import commodoreamigaicon from "../images/platforms/CommodoreAmiga.png";
+import dreamcasticon from "../images/platforms/Dreamcast.png";
+import gameboyicon from "../images/platforms/gameBoy.png";
+import gameboyadvanceicon from "../images/platforms/GameBoyAdvance.png";
+import gameboycoloricon from "../images/platforms/GameBoyColor.png";
+import gamecubeicon from "../images/platforms/GameCube.png";
+import nes from "../images/platforms/nes.png";
+import segacd from "../images/platforms/SEGACD.png";
+import segagenesis from "../images/platforms/segaGenesis.png";
+import segamastersystemicon from "../images/platforms/SegaMasterSystem.png";
+import snes from "../images/platforms/snes.png";
+import webicon from "../images/platforms/Web.png";
+import wii from "../images/platforms/Wii.png";
+export default function GameList({ Store = {}, addInStore, page, setTotalPages, textSearch, gameCountSet, countGame, ordering }) {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
     async function fetchGames() {
-      const gamesData = await getGamesList(page, textSearch);
+      const gamesData = await getGamesList(page, textSearch, ordering);
       console.log("gamesData:", gamesData);
       setGames(gamesData.results);
       setTotalPages(Math.ceil(gamesData.count / 20));
       gameCountSet(Number(gamesData.count));
     }
     fetchGames();
-  }, [page, setTotalPages, textSearch]);
+  }, [page, setTotalPages, textSearch, ordering]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -44,6 +60,23 @@ export default function GameList({ Store = {}, addInStore, page, setTotalPages, 
     if (nameName.includes("android")) return "android";
     if (nameName.includes("linux")) return "linux";
     if (nameName.includes("WiiU")) return "WiiU";
+    
+    if (nameName.includes("apple ii")) return "appleii";
+    if (nameName.includes("atari st")) return "atarist";
+    if (nameName.includes("classic macintosh")) return "classicmacintosh";
+    if (nameName.includes("commodore amiga")) return "commodoreamiga";
+    if (nameName.includes("dreamcast")) return "dreamcast";
+    if (nameName.includes("game boy advance")) return "gameboyadvance";
+    if (nameName.includes("game boy color")) return "gameboycolor";
+    if (nameName.includes("game boy")) return "gameboy";
+    if (nameName.includes("gamecube")) return "gamecube";
+    if (nameName.includes("nes")) return "nes";
+    if (nameName.includes("segacd")) return "segacd";
+    if (nameName.includes("sega genesis")) return "segagenesis";
+    if (nameName.includes("sega master system")) return "segamastersystem";
+    if (nameName.includes("snes")) return "snes";
+    if (nameName.includes("web")) return "web";
+    if (nameName.includes("wii")) return "wii";
 
     return name.replace(/\d+/g, '').replace(/\s+/g, '');
   };
@@ -58,6 +91,23 @@ export default function GameList({ Store = {}, addInStore, page, setTotalPages, 
     android: androidicon,
     linux: linuxicon,
     WiiU: wiiuicon,
+
+    appleii: appleiiicon,
+    atarist: atarist,
+    classicmacintosh: classicmcintoshicon,
+    commodoreamiga: commodoreamigaicon,
+    dreamcast: dreamcasticon,
+    gameboy: gameboyicon,
+    gameboyadvance: gameboyadvanceicon,
+    gameboycolor: gameboycoloricon,
+    gamecube: gamecubeicon,
+    nes: nes,
+    segacd: segacd,
+    segagenesis: segagenesis,
+    segamastersystem: segamastersystemicon,
+    snes: snes,
+    web: webicon,
+    wii: wii
   }
 
   return (
@@ -80,7 +130,9 @@ export default function GameList({ Store = {}, addInStore, page, setTotalPages, 
         const longTitle = title.length > 40;
         return (
           <div className="gameList__item" key={game.id}>
+            <Link to={`/game/${game.id}`} className="gameList__item-link">
             <img src={game.background_image} alt="" className="gameList__item-image" />
+            </Link>
             <div className="gameList__item-info">
 
               <div className="gameList__rating-platforms">
@@ -99,12 +151,13 @@ export default function GameList({ Store = {}, addInStore, page, setTotalPages, 
               </div>
 
               {
+                <Link to={`/game/${game.id}`} className="gameList__item-link">
                 <span
                   className={`gameList__item-title ${longTitle ? 'gameList__item-title__long' : ''}`}
                 >
                   {title}
                 </span>
-
+                </Link>
               }
 
               {<div className={`gameList__item-genres ${hiddenGenres > 0 ? 'gameList__item-genres__mores' : ''}`}>

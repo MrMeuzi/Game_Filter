@@ -4,51 +4,31 @@ import GameList from "../components/gameList";
 import PagesChoose from "../components/pagesChoose";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Home({searchText, setSearchText, Store, addInStore}) {
+export default function Home({searchText, setSearchText, Store, addInStore, searchInput}) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-  const params = new URLSearchParams(location.search);
-  const pageUrl = Number(params.get("page")) || 1;
-  const searchUrl = params.get("search") || "";
-  setPage(pageUrl);
-  setSearchText(searchUrl);
-  }, [location.search]);
+  
 
   const linkup = new URLSearchParams(location.search);
   const initPage = Number(linkup.get("page")) || 1;
-  const [page, setPage] = useState(initPage);
   const [totalPages, setTotalPages] = useState(1);
   const [gameCount, setGameCount] = useState(0);
-  useEffect(() => {
-  const linkup = new URLSearchParams(location.search);
-  linkup.set("page", page);
-  if (searchText) {
-    navigate(`/?search=${searchText}&page=${page}`, { replace: true });
-  } else {
-    navigate(`/?page=${page}`, { replace: true });
-    
-  }
-}, [page, navigate, searchText]);
-  useEffect(() => {
-  const linkup = new URLSearchParams(location.search);
-  const urlPage = Number(linkup.get("page")) || 1;
-  setPage(urlPage);
-}, [location.search]);
-  useEffect(() => {
-    const linkupSearch = new URLSearchParams(location.search);
-    const urlSearch = linkupSearch.get("search") || "";
-    setSearchText(urlSearch);
-  }, [location.search]);
-  useEffect(() => {
-    setPage(1);
-  }, [searchText]);
+  
+const page = Number(linkup.get("page")) || 1;
+
+function setPage_Home(newPage) {
+  navigate(`/?page=${newPage}`, { replace: true });
+}
+
+const [sortOptionHome, setOptionHone] = useState(""); // результат для апи
+
+  const [optionHome, setOption] = useState(""); // результат для ввода в ordering
   return (
     <div>
-      <SearchResult textSearch={searchText} countGame={gameCount}/>
-      <GameList page={page} setTotalPages={setTotalPages} textSearch={searchText} gameCountSet={setGameCount} countGame={gameCount} Store={Store} addInStore={addInStore}/>
-      <PagesChoose page={page} totalPages={totalPages} onPageChange={setPage} gameCount={gameCount}/>
+      <SearchResult textSearch={searchText} countGame={gameCount} setOptionHone={setOptionHone} setOption={setOption} optionHome={optionHome}/>
+      <GameList page={page} setTotalPages={setTotalPages} textSearch={searchText} gameCountSet={setGameCount} countGame={gameCount} Store={Store} addInStore={addInStore} ordering={sortOptionHome}/>
+      <PagesChoose page={page} totalPages={totalPages} onPageChange={setPage_Home} gameCount={gameCount}/>
     </div>
   );
 }
