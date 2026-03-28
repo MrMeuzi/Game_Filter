@@ -9,6 +9,7 @@ export default function GameDetails({ Store = {}, addInStore }) {
   const [video, setVideo] = useState([]);
   const { id } = useParams();
   const [openedScreenshotID, setOpenedScreenshotID] = useState(null);
+  const isMobile = window.innerWidth <= 950;
 
   useEffect(() => {
     async function loadGame() {
@@ -52,12 +53,14 @@ next === screenshots.length - 1 ? 0 : next + 1)
     <div className="Card">
 
 {tekyshiyScreensh && <div className="Screensh__wrapper" onClick={() => setOpenedScreenshotID(null)}>
-        <div className="Screensh__tekysh" onClick={(e) => e.stopPropagation()}>{openedScreenshotID + 1} / {screenshots.length}</div>
-        <div className="Screensh__buttons" onClick={(e) => e.stopPropagation()}>
-          <button className="Screensh__button" onClick={() => prevScreensh()}><span className="Screensh__text">←</span></button>
-          <button className="Screensh__button" onClick={() => nextScreensh()}><span className="Screensh__text">→</span></button>
-        </div>
-        <img src={tekyshiyScreensh.image} alt="Текущий скриншот" className="Screensh__wrapper__img" onClick={(e) => e.stopPropagation()}/>
+      <div className="Screensh__stage">
+          <div className="Screensh__tekysh" onClick={(e) => e.stopPropagation()}>{openedScreenshotID + 1} / {screenshots.length}</div>
+          <div className="Screensh__buttons" onClick={(e) => e.stopPropagation()}>
+            <button className="Screensh__button" onClick={() => prevScreensh()}><span className="Screensh__text">←</span></button>
+            <button className="Screensh__button" onClick={() => nextScreensh()}><span className="Screensh__text">→</span></button>
+          </div>
+          <img src={tekyshiyScreensh.image} alt="Текущий скриншот" className="Screensh__wrapper__img" onClick={(e) => e.stopPropagation()}/>
+      </div>
       </div>}
 
       <div className="Card__wrapper">
@@ -116,7 +119,7 @@ next === screenshots.length - 1 ? 0 : next + 1)
             <div className="Card__released">Дата выхода: {gameDet.released ?? "Нет данных"}</div>
             <div className="Card__developers">Разработчики: {developers.length > 0 ? developers.map((d) => d.name).join(", ") : "Нет данных"}</div>
             <div className="Card__publishers">Издатели: {publishers.length > 0 ? publishers.map((p) => p.name).join(", ") : "Нет данных"}</div>
-            <div className="Card__website">Сайт: {<a target="_blank" href={gameDet.website}>{gameDet.website}</a> ?? "Нет данных"}</div>
+            <div className="Card__website Card__website--mobile">Сайт: {<a target="_blank" href={gameDet.website}>{gameDet.website}</a> ?? "Нет данных"}</div>
           </div>
         </div>
       </div>
@@ -152,7 +155,7 @@ next === screenshots.length - 1 ? 0 : next + 1)
         <h1 className="Card__bottom-h1">Скриншоты</h1>
         <div className="Card__bottom-img-wrapper">
           {screenshots.length > 0 ? screenshots.map((shot, index) => (
-            <img key={shot.id} src={shot.image} alt={`Скриншот из игры ${gameDet.name}`} className="Card__bottom-img" onClick={() => setOpenedScreenshotID(index)}/>
+            <img key={shot.id} src={shot.image} alt={`Скриншот из игры ${gameDet.name}`} className="Card__bottom-img" onClick={() => { if(!isMobile) { setOpenedScreenshotID(index)}}}/>
           )) : (
             <div>Скриншоты не найдены</div>
           )}

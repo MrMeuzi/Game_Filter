@@ -1195,8 +1195,9 @@ justify-self: start;
 
 .Card__poster {
   margin-top: 1rem;
-  width: 82vw;
-  height: 200px;
+  width: 100%;
+  max-width: 85vw;
+  height: auto;
   border: 2px solid rgb(255, 255, 255);
   border-radius: .5rem;
 }
@@ -1288,7 +1289,7 @@ margin-bottom: 1rem;
 
 }
 .Card__bottom_SR--mobile {
-  margin-bottom: 5rem;
+  margin-bottom: 7rem;
 }
 .Card__tag {
   font-size: .8rem;
@@ -1316,8 +1317,9 @@ margin-bottom: 1rem;
 }
 
 .Card__bottom-img {
-  height: 10rem;
-  width: 19rem;
+  height: auto;
+  width: 100%;
+  max-width: 100;
   border: 2px solid white;
   border-radius: .5rem;
   cursor: pointer;
@@ -1362,7 +1364,7 @@ margin-bottom: 1rem;
   display: flex;
   justify-self: center;
   align-self: flex-end;
-  margin-bottom: 12.7rem;
+  margin-bottom: 17.7rem;
   font-size: 1rem;
   z-index: 1004;
   background-color: rgba(0, 0, 0, 0.5);
@@ -1378,8 +1380,8 @@ margin-bottom: 1rem;
   display: grid;
   justify-content: space-between;
   grid-template-columns: 1fr 1fr;
-  gap: 15.2rem;
-  height: 16.6rem;
+  gap: 17.1rem;
+  height: 23rem;
 }
 
 .Screensh__button {
@@ -1407,5 +1409,8 @@ margin-bottom: 1rem;
 }
 .Card__loading {
   font-size: 2rem;
+}
+.Card__website--mobile {
+  font-size: .75rem;
 }
 }
