@@ -1197,7 +1197,7 @@ justify-self: start;
   margin-top: 1rem;
   width: 100%;
   max-width: 85vw;
-  height: auto;
+  height: 100%;
   border: 2px solid rgb(255, 255, 255);
   border-radius: .5rem;
 }
