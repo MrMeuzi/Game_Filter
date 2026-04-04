@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import SearchResult from "../components/SearchResult";
 import GameList from "../components/gameList";
 import PagesChoose from "../components/pagesChoose";
@@ -46,7 +46,9 @@ function applyHomeFilter(newFilter) {
   navigate("/?page=1", { replace: true });
 }
   // конец нейронки
-  
+  useEffect(() => {
+    document.title = `Главная | Страница ${page} - GameFilter`;
+  }, [page]);
   return (
     <div>
       <SearchResult textSearch={searchText} countGame={gameCount} setOptionHone={setOptionHone} setOption={setOption} optionHome={optionHome} appliedFilter={appliedFilterHome} setAppliedFilter={applyHomeFilter}/>

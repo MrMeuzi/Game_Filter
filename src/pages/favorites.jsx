@@ -79,6 +79,10 @@ const gamesAfterFilter = gamesToShow.filter(game => {
         break;
   };
 
+  useEffect(() => {
+    document.title = `Избранные | Страница ${page_favorites} - GameFilter`;
+  }, [page_favorites]);
+
   return (
     <div className=''>
       <SearchResult textSearch={searchText} countGame={sortedFavoritesGames.length} searchValue={favoritesSearchText} setSearchValue={setFavoritesSearchText} setSortedType={setSortedType} sortedType={sortedType} appliedFilter={appliedFilterFavorites} setAppliedFilter={setAppliedFilterFavorites}/>

@@ -36,7 +36,18 @@ prev === 0 ? screenshots.length - 1 : prev - 1)
 function nextScreensh() {
 setOpenedScreenshotID((next) =>
 next === screenshots.length - 1 ? 0 : next + 1)
+
 }
+
+useEffect(() => {
+  if (gameDet?.name) {
+    document.title = `${gameDet.name} - Game Filter`;
+  } else {
+    document.title = "Игра - Game Filter";
+  }
+}, [gameDet]);
+
+
   if (!gameDet) {
     return <div className="Card__loading">Загрузка данных...</div>;
   }
