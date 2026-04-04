@@ -44,6 +44,15 @@ const genreOptions = [
   "Card"
 ];
 
+const initialFilter = {
+  rating: false,
+  metacritic: false,
+  year: "",
+  tags: [],
+  genres: [],
+  platforms: []
+};
+
 function toogleGenre(genreName) {
   setBanjoFilter((added) => {
     return {
@@ -214,6 +223,8 @@ function toogleTag(tagName) {
         ))}
       </ul>
       <button className="filter__primenenie" onClick={() => {setAppliedFilter(banjofilter); Zakritie();}}>Искать</button>
+            <button className="filter__primenenie filter__primenenie--clear" onClick={() => {setAppliedFilter(initialFilter); Zakritie();}}>Очистить</button>
+
     </div>
   </div>
   );
