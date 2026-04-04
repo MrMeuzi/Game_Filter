@@ -45,6 +45,7 @@ function applyHomeFilter(newFilter) {
   setAppliedFilterHome(newFilter);
   navigate("/?page=1", { replace: true });
 }
+
   // конец нейронки
   useEffect(() => {
     document.title = `Главная | Страница ${page} - GameFilter`;
