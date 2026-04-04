@@ -213,7 +213,7 @@ function toogleTag(tagName) {
         </li>
         ))}
       </ul>
-      <button className="filter__primenenie" onClick={() => {setAppliedFilter(banjofilter); Zakritie();}}>Отфильтровать</button>
+      <button className="filter__primenenie" onClick={() => {setAppliedFilter(banjofilter); Zakritie();}}>Искать</button>
     </div>
   </div>
   );
