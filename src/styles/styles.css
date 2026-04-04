@@ -965,6 +965,8 @@ input[type="checkbox"]:checked::after {
 }
   .filter__primenenie {
     font-size: 1.7rem;
+    padding: 1.5rem 0rem;
+    margin: .7rem .80rem;
   }
   .not-found {
   margin-top: 6rem;
