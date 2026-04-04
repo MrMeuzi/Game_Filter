@@ -13,6 +13,22 @@ import androidicon from "../images/platforms/android.png";
 import linuxicon from "../images/platforms/linux.png";
 import wiiuicon from "../images/platforms/wiiu.png";
 import { Link } from "react-router-dom";
+import appleiiicon from "../images/platforms/AppleII.png";
+import atarist from "../images/platforms/AtariST.png";
+import classicmcintoshicon from "../images/platforms/ClassicMacintosh.png";
+import commodoreamigaicon from "../images/platforms/CommodoreAmiga.png";
+import dreamcasticon from "../images/platforms/Dreamcast.png";
+import gameboyicon from "../images/platforms/gameBoy.png";
+import gameboyadvanceicon from "../images/platforms/GameBoyAdvance.png";
+import gameboycoloricon from "../images/platforms/GameBoyColor.png";
+import gamecubeicon from "../images/platforms/GameCube.png";
+import nes from "../images/platforms/nes.png";
+import segacd from "../images/platforms/SEGACD.png";
+import segagenesis from "../images/platforms/segaGenesis.png";
+import segamastersystemicon from "../images/platforms/SegaMasterSystem.png";
+import snes from "../images/platforms/snes.png";
+import webicon from "../images/platforms/Web.png";
+import wii from "../images/platforms/Wii.png";
 export default function GameListFavorites({ page, favStore, addInStore, Store }) {
 useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -37,6 +53,23 @@ useEffect(() => {
     if (nameName.includes("linux")) return "linux";
     if (nameName.includes("wiiu")) return "WiiU";
 
+        if (nameName.includes("apple ii")) return "appleii";
+    if (nameName.includes("atari st")) return "atarist";
+    if (nameName.includes("classic macintosh")) return "classicmacintosh";
+    if (nameName.includes("commodore amiga")) return "commodoreamiga";
+    if (nameName.includes("dreamcast")) return "dreamcast";
+    if (nameName.includes("game boy advance")) return "gameboyadvance";
+    if (nameName.includes("game boy color")) return "gameboycolor";
+    if (nameName.includes("game boy")) return "gameboy";
+    if (nameName.includes("gamecube")) return "gamecube";
+    if (nameName.includes("nes")) return "nes";
+    if (nameName.includes("segacd")) return "segacd";
+    if (nameName.includes("sega genesis")) return "segagenesis";
+    if (nameName.includes("sega master system")) return "segamastersystem";
+    if (nameName.includes("snes")) return "snes";
+    if (nameName.includes("web")) return "web";
+    if (nameName.includes("wii")) return "wii";
+
     return name.replace(/\d+/g, '').replace(/\s+/g, '');
   };
 
@@ -50,6 +83,23 @@ useEffect(() => {
     android: androidicon,
     linux: linuxicon,
     WiiU: wiiuicon,
+
+    appleii: appleiiicon,
+    atarist: atarist,
+    classicmacintosh: classicmcintoshicon,
+    commodoreamiga: commodoreamigaicon,
+    dreamcast: dreamcasticon,
+    gameboy: gameboyicon,
+    gameboyadvance: gameboyadvanceicon,
+    gameboycolor: gameboycoloricon,
+    gamecube: gamecubeicon,
+    nes: nes,
+    segacd: segacd,
+    segagenesis: segagenesis,
+    segamastersystem: segamastersystemicon,
+    snes: snes,
+    web: webicon,
+    wii: wii
   }
   const pageSize = 20;
 const start = (page - 1) * pageSize;

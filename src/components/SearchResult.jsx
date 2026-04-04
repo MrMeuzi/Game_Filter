@@ -1,7 +1,8 @@
 import { useMemo, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import filter_image from '../images/filter.png';
-export default function SearchResult({ textSearch, countGame, setOptionHone, setOption, optionHome, searchValue, setSearchValue, sortedType, setSortedType }) {
+import FilterGames from './filterMenu';
+export default function SearchResult({ textSearch, countGame, setOptionHone, setOption, optionHome, searchValue, setSearchValue, sortedType, setSortedType, appliedFilter, setAppliedFilter }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 950);
   useEffect(() => {
     function handleResize() {
@@ -60,6 +61,7 @@ export default function SearchResult({ textSearch, countGame, setOptionHone, set
   const isFavoritePage = location.pathname === "/favorites";
   const universalValue = isFavoritePage ? sortedType : optionHome;
   const ystanovshikUniversalValue = isFavoritePage ? setSortedType : setOption;
+  const [isOpenFilterMenu, setIsOpenFilterMenu] = useState(false);
   return (
     <div>
     <div className="result-wrapper">
@@ -89,10 +91,12 @@ export default function SearchResult({ textSearch, countGame, setOptionHone, set
             src={filter_image} 
             alt="filters__image"
             className="filters__image"
+            onClick={() => { setIsOpenFilterMenu(true)}}
           />
         </button>
       </div>
     </div>
+    {isOpenFilterMenu && (<FilterGames Zakritie={() => setIsOpenFilterMenu(false)} appliedFilter={appliedFilter} setAppliedFilter={setAppliedFilter} isFavoritePage={isFavoritePage}/>)}
     <div className="line"></div></div>
   );
 }

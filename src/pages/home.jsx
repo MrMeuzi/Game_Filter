@@ -22,12 +22,35 @@ function setPage_Home(newPage) {
 }
 
 const [sortOptionHome, setOptionHone] = useState(""); // результат для апи
-
+const initialFilter = {
+  rating: false,
+  metacritic: false,
+  year: "",
+  tags: [],
+  genres: [],
+  platforms: []
+};
   const [optionHome, setOption] = useState(""); // результат для ввода в ordering
+  // нейронка помогла сделать сохранение фильтра при обновлении страницы
+  const [appliedFilterHome, setAppliedFilterHome] = useState(() => {
+  const saved = sessionStorage.getItem("homeFilter");
+  return saved ? JSON.parse(saved) : initialFilter;
+}); // результат для отображения в фильтре для главной страницы
+
+useEffect(() => {
+  sessionStorage.setItem("homeFilter", JSON.stringify(appliedFilterHome));
+}, [appliedFilterHome]);
+
+function applyHomeFilter(newFilter) {
+  setAppliedFilterHome(newFilter);
+  navigate("/?page=1", { replace: true });
+}
+  // конец нейронки
+  
   return (
     <div>
-      <SearchResult textSearch={searchText} countGame={gameCount} setOptionHone={setOptionHone} setOption={setOption} optionHome={optionHome}/>
-      <GameList page={page} setTotalPages={setTotalPages} textSearch={searchText} gameCountSet={setGameCount} countGame={gameCount} Store={Store} addInStore={addInStore} ordering={sortOptionHome}/>
+      <SearchResult textSearch={searchText} countGame={gameCount} setOptionHone={setOptionHone} setOption={setOption} optionHome={optionHome} appliedFilter={appliedFilterHome} setAppliedFilter={applyHomeFilter}/>
+      <GameList page={page} setTotalPages={setTotalPages} textSearch={searchText} gameCountSet={setGameCount} countGame={gameCount} Store={Store} addInStore={addInStore} ordering={sortOptionHome} appliedFilter={appliedFilterHome}/>
       <PagesChoose page={page} totalPages={totalPages} onPageChange={setPage_Home} gameCount={gameCount}/>
     </div>
   );

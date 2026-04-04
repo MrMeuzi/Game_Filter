@@ -25,7 +25,35 @@ function setPage_favorites(newPage) {
 
   
   const gamesToShow = favoritesSearchText.trim() ? filteredFavorites : favoritesGames;
-  const sortedFavoritesGames = [...gamesToShow];
+  const initialFilter = {
+  rating: false,
+  metacritic: false,
+  year: "",
+  tags: [],
+  genres: [],
+  platforms: []
+};
+  const [appliedFilterFavorites, setAppliedFilterFavorites] = useState(initialFilter); // результат для отображения в фильтре для избранных игр
+const gamesAfterFilter = gamesToShow.filter(game => {
+    const ratingMatch = !appliedFilterFavorites.rating ? true : game.rating >= 4.5;
+
+    const gameYear = String(game.released ?? "").slice(0, 4);
+    const filterYear = appliedFilterFavorites.year.trim();
+    const yearMatch = !appliedFilterFavorites.year ? true : gameYear === filterYear;
+
+    const metacriticMatch = !appliedFilterFavorites.metacritic ? true : game.metacritic >= 80;
+
+    const gameGenres = (game.genres ?? []).map((genre) => genre?.name || genre).filter(Boolean);
+    const genresMatch = appliedFilterFavorites.genres.length === 0 || appliedFilterFavorites.genres.every((genre) => gameGenres.includes(genre));
+
+    const gamePlatforms = (game.platforms ?? []).map((platforms) => platforms?.platform?.name || platforms?.name || platforms).filter(Boolean);
+    const platformsMatch = appliedFilterFavorites.platforms.length === 0 || appliedFilterFavorites.platforms.every((platform) => gamePlatforms.includes(platform));
+    
+    const gameTag = (game.tags ?? []).map((tag) => tag?.name || tag).filter(Boolean);
+    const tagsMatch = appliedFilterFavorites.tags.length === 0 || appliedFilterFavorites.tags.every((tag) => gameTag.includes(tag))
+    return ratingMatch && yearMatch && metacriticMatch && genresMatch && platformsMatch && tagsMatch;
+  });
+  const sortedFavoritesGames = [...gamesAfterFilter];
   switch (sortedType) { // сортировка для избранных игр
       case "baza":
         break;
@@ -50,9 +78,10 @@ function setPage_favorites(newPage) {
       default:
         break;
   };
+
   return (
     <div className=''>
-      <SearchResult textSearch={searchText} countGame={sortedFavoritesGames.length} searchValue={favoritesSearchText} setSearchValue={setFavoritesSearchText} setSortedType={setSortedType} sortedType={sortedType} />
+      <SearchResult textSearch={searchText} countGame={sortedFavoritesGames.length} searchValue={favoritesSearchText} setSearchValue={setFavoritesSearchText} setSortedType={setSortedType} sortedType={sortedType} appliedFilter={appliedFilterFavorites} setAppliedFilter={setAppliedFilterFavorites}/>
       {favoritesGames.length === zero ? (<h2 className="Card__loading">Вы не добавили еще ни одной игры в избранное</h2>) : (<GameListFavorites favStore={sortedFavoritesGames} page={page_favorites} addInStore={addInStore} Store={Store}/>)}
       <PagesChooseFavorites favStore={sortedFavoritesGames} page={page_favorites} onPageChange={setPage_favorites}/>
     </div>

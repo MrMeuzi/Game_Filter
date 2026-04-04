@@ -29,19 +29,20 @@ import segamastersystemicon from "../images/platforms/SegaMasterSystem.png";
 import snes from "../images/platforms/snes.png";
 import webicon from "../images/platforms/Web.png";
 import wii from "../images/platforms/Wii.png";
-export default function GameList({ Store = {}, addInStore, page, setTotalPages, textSearch, gameCountSet, countGame, ordering }) {
+export default function GameList({ Store = {}, addInStore, page, setTotalPages, textSearch, gameCountSet, countGame, ordering, appliedFilter }) {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
     async function fetchGames() {
-      const gamesData = await getGamesList(page, textSearch, ordering);
+      const gamesData = await getGamesList(page, textSearch, ordering, appliedFilter);
       console.log("gamesData:", gamesData);
       setGames(gamesData.results);
       setTotalPages(Math.ceil(gamesData.count / 20));
       gameCountSet(Number(gamesData.count));
+
     }
     fetchGames();
-  }, [page, setTotalPages, textSearch, ordering]);
+  }, [page, setTotalPages, textSearch, ordering, appliedFilter, gameCountSet]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -177,7 +178,9 @@ export default function GameList({ Store = {}, addInStore, page, setTotalPages, 
                   rating: game.rating,
                   platforms: allSiblings,
                   genres: genres,
-                  released: game.released
+                  released: game.released,
+                  metacritic: game.metacritic,
+                  tags: (game.tags ?? []).map(tag => tag.name)
                 })} />
               </div>
             </div>
