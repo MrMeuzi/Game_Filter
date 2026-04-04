@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Game_Filter/static/css/main.f5c82fbe.css",
-    "main.js": "/Game_Filter/static/js/main.ddb02201.js",
+    "main.css": "/Game_Filter/static/css/main.7ffaa37b.css",
+    "main.js": "/Game_Filter/static/js/main.9125aecc.js",
     "static/js/453.609a9210.chunk.js": "/Game_Filter/static/js/453.609a9210.chunk.js",
     "static/media/notFound.png": "/Game_Filter/static/media/notFound.6151c32f597c1bbdfd8c.png",
     "static/media/deleteSearch.png": "/Game_Filter/static/media/deleteSearch.1995b9b6ca55eaaf5ca2.png",
@@ -38,12 +38,12 @@
     "static/media/nintendo.png": "/Game_Filter/static/media/nintendo.b1fe0a69cb5eb4ef2760.png",
     "static/media/loopa.png": "/Game_Filter/static/media/loopa.36ef4317d73ffdda62b8.png",
     "index.html": "/Game_Filter/index.html",
-    "main.f5c82fbe.css.map": "/Game_Filter/static/css/main.f5c82fbe.css.map",
-    "main.ddb02201.js.map": "/Game_Filter/static/js/main.ddb02201.js.map",
+    "main.7ffaa37b.css.map": "/Game_Filter/static/css/main.7ffaa37b.css.map",
+    "main.9125aecc.js.map": "/Game_Filter/static/js/main.9125aecc.js.map",
     "453.609a9210.chunk.js.map": "/Game_Filter/static/js/453.609a9210.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f5c82fbe.css",
-    "static/js/main.ddb02201.js"
+    "static/css/main.7ffaa37b.css",
+    "static/js/main.9125aecc.js"
   ]
 }
