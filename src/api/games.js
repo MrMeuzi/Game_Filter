@@ -1,4 +1,4 @@
-const API_KEY = "de74cad3d1cd41caa5ab78844bd1d514"
+const API_KEY = process.env.REACT_APP_RAWG_API_KEY
 const BASE_URL = "https://api.rawg.io/api/games"
 
 export async function getGamesList(page = 1, textSearch = "", ordering = "", appliedFilter = {}) {
