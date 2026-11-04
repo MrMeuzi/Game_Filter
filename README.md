@@ -41,5 +41,4 @@ API позволяет запрашивать результаты со смещ
 - React hooks и localStorage для работы с избранным.
 - HTML и CSS, адаптивная вёрстка.
 - GameBrain API и Cloudflare Workers.
-- Jest и React Testing Library для тестов.
 - GitHub Pages для размещения сайта.
