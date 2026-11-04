@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { BASE_URL, API_KEY } from "../api/game";
+import { Link } from "react-router-dom";
+import { toFavorite } from "../api/gamebrain";
 import { game } from "../api/game";
 
 export default function GameDetails({ Store = {}, addInStore }) {
@@ -11,23 +12,23 @@ export default function GameDetails({ Store = {}, addInStore }) {
   const [openedScreenshotID, setOpenedScreenshotID] = useState(null);
   const isMobile = window.innerWidth <= 950;
 
+  const [error, setError] = useState("");
+  const [retry, setRetry] = useState(0);
+  const isLegacy = !String(id).startsWith("gb-");
   useEffect(() => {
-    async function loadGame() {
-      const info = await game(id);
+    if (isLegacy) return;
+    let active = true;
+    setGameDet(null);
+    setError("");
+    setOpenedScreenshotID(null);
+    game(id).then(info => {
+      if (!active) return;
       setGameDet(info);
-
-      const screenshotsZapros = await fetch(`${BASE_URL}/${id}/screenshots?key=${API_KEY}`);
-      const screenshotsData = await screenshotsZapros.json();
-      setScreenshots(screenshotsData.results || []);
-
-      const videoZapros = await fetch(`${BASE_URL}/${id}/movies?key=${API_KEY}`);
-      const videoData = await videoZapros.json();
-      setVideo(videoData.results || []);
-      
-    }
-
-    loadGame();
-  }, [id]);
+      setScreenshots(info.screenshots);
+      setVideo(info.videos);
+    }).catch(error => { if (active) setError(error.message || "Не удалось загрузить игру."); });
+    return () => { active = false; };
+  }, [id, retry, isLegacy]);
 const tekyshiyScreensh = openedScreenshotID !== null ? screenshots[openedScreenshotID] : null;
 function prevScreensh() {
 setOpenedScreenshotID((prev) => 
@@ -48,6 +49,16 @@ useEffect(() => {
 }, [gameDet]);
 
 
+  if (isLegacy) {
+    const saved = Store[id];
+    return <div className="Card__loading">
+      <h1>{saved?.title || "Игра из старого каталога"}</h1>
+      <p>Эта игра сохранена до смены каталога. Найдите её в GameBrain и добавьте заново.</p>
+      <Link to={"/?search=" + encodeURIComponent(saved?.title || "")}>Найти в GameBrain</Link>
+      {saved && <button onClick={() => addInStore(saved)}>Удалить из избранного</button>}
+    </div>;
+  }
+  if (error) return <div className="Card__loading" role="alert">{error}<br /><button onClick={() => setRetry(value => value + 1)}>Повторить</button></div>;
   if (!gameDet) {
     return <div className="Card__loading">Загрузка данных...</div>;
   }
@@ -56,7 +67,6 @@ useEffect(() => {
   const genres = gameDet.genres ?? [];
   const tags = gameDet.tags ?? [];
   const developers = gameDet.developers ?? [];
-  const publishers = gameDet.publishers ?? [];
 
   const isFavorite = gameDet.id && Object.hasOwn(Store, gameDet.id);
 
@@ -104,33 +114,23 @@ useEffect(() => {
 
         <div className="Card__wrapper-right">
           <div className="Card__info-left">
-            <div className="Card__poster"><img src={gameDet.background_image} alt="Обложка игры" /></div>
+            <div className="Card__poster"><img src={gameDet.background_image || undefined} alt="Обложка игры" /></div>
           </div>
 
           <div className="Card__info-right">
             <button
               className={isFavorite ? "Card__info-button-added" : "Card__info-button"}
               onClick={() => {
-                addInStore({
-                  id: gameDet.id,
-                  title: gameDet.name,
-                  background_image: gameDet.background_image,
-                  rating: gameDet.rating,
-                  platforms,
-                  genres,
-                  released: gameDet.released,
-                });
+                addInStore(toFavorite(gameDet));
               }}
             >
               {isFavorite ? "Убрать из избранного" : "Добавить в избранное"}
             </button>
 
             <div className="Card__rating">Рейтинг: {gameDet.rating ?? "Нет данных"}</div>
-            <div className="Card__metacritic">Metacritic: {gameDet.metacritic ?? "Нет данных"}</div>
             <div className="Card__released">Дата выхода: {gameDet.released ?? "Нет данных"}</div>
             <div className="Card__developers">Разработчики: {developers.length > 0 ? developers.map((d) => d.name).join(", ") : "Нет данных"}</div>
-            <div className="Card__publishers">Издатели: {publishers.length > 0 ? publishers.map((p) => p.name).join(", ") : "Нет данных"}</div>
-            <div className="Card__website Card__website--mobile">Сайт: {<a target="_blank" href={gameDet.website}>{gameDet.website}</a> ?? "Нет данных"}</div>
+            <div className="Card__website Card__website--mobile">Источник: <a target="_blank" rel="noreferrer" href={gameDet.website}>GameBrain</a></div>
           </div>
         </div>
       </div>
@@ -147,12 +147,8 @@ useEffect(() => {
               <div className={video.length > 1 ? "Card__videos-wrapper" : "Card__videos-wrapper-fr1"}>
                 {video.map((item) => (
                   <div key={item.id} className="Card__videos">
-                    <div className="Card__videos-title">{item.name}</div>
-                    {item.data?.max ? (
-                      <video className="Card__video-player" controls src={item.data.max} poster={item.preview} />
-                    ) : (
-                      <div>Нет данных о трейлере</div>
-                    )}
+                    <div className="Card__videos-title">{"Видео " + (item.id + 1)}</div>
+                    {item.embed ? <iframe className="Card__video-player" src={item.url} title={"Видео " + (item.id + 1)} loading="lazy" allow="fullscreen; picture-in-picture" allowFullScreen /> : <video className="Card__video-player" controls src={item.url} poster={gameDet.background_image} preload="none" />}
                   </div>
                 ))}
               </div>
@@ -172,21 +168,6 @@ useEffect(() => {
           )}
         </div>
 
-        <h1 className="Card__bottom-h1">Минимальные системные требования</h1>
-          <div className="Card__bottom__SR">{platforms.length > 0 ? platforms.map((p, index) => (
-        <div key={index}>
-          <span className="">{p.platform?.name || p.name}</span>
-          : {p.requirements?.minimum?.replace(/\n/g, "\n- ") ?? "Нет данных"}
-        </div> )) : ( <div>Нет данных </div> )}
-        </div>
-
-        <h1 className="Card__bottom-h1">Рекомендуемые системные требования</h1>
-          <div className="Card__bottom__SR Card__bottom_SR--mobile">{platforms.length > 0 ? platforms.map((p, index) => (
-        <div key={index}>
-          <span className="">{p.platform?.name || p.name}</span>
-          : {p.requirements?.recommended?.replace(/\n/g, "\n- ")  ?? "Нет данных"}
-        </div> )) : ( <div>Нет данных </div> )}
-        </div>
       </div>
     </div>
   );

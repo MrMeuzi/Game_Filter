@@ -2,7 +2,7 @@ import { useMemo, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import filter_image from '../images/filter.png';
 import FilterGames from './filterMenu';
-export default function SearchResult({ textSearch, countGame, setOptionHone, setOption, optionHome, searchValue, setSearchValue, sortedType, setSortedType, appliedFilter, setAppliedFilter }) {
+export default function SearchResult({ textSearch, countGame, setOptionHone, setOption, optionHome, searchValue, setSearchValue, sortedType, setSortedType, appliedFilter, setAppliedFilter, favoriteOptions }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 950);
   useEffect(() => {
     function handleResize() {
@@ -76,17 +76,16 @@ export default function SearchResult({ textSearch, countGame, setOptionHone, set
           <option value="worstRating">Игры с худшим рейтингом</option>
           <option value="years_release_toOld">От новых игр к старым</option>
           <option value="years_release_toNew">От старых игр к новым</option>
-          <option value="A-Z">По алфавиту с начала</option>
-          <option value="Z-A">По алфавиту с конца</option>
+          {isFavoritePage && <><option value="A-Z">По алфавиту с начала</option><option value="Z-A">По алфавиту с конца</option></>}
         </select>
         
-<form className="favoritesSearch__wrapper">
+<form className="favoritesSearch__wrapper" onSubmit={e => e.preventDefault()}>
   {isFavoritePage && (
       <input className="favoritesSearch__input" type="text" placeholder={isMobile ? "Поиск игр в избр." : "Поиск игр в избранном"} value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
 )}
 </form>
 
-        <button className="filters__button">
+        <button className="filters__button" aria-label="Открыть фильтры" onClick={() => setIsOpenFilterMenu(true)}>
           <img 
             src={filter_image} 
             alt="filters__image"
@@ -96,7 +95,7 @@ export default function SearchResult({ textSearch, countGame, setOptionHone, set
         </button>
       </div>
     </div>
-    {isOpenFilterMenu && (<FilterGames Zakritie={() => setIsOpenFilterMenu(false)} appliedFilter={appliedFilter} setAppliedFilter={setAppliedFilter} isFavoritePage={isFavoritePage}/>)}
+    {isOpenFilterMenu && (<FilterGames Zakritie={() => setIsOpenFilterMenu(false)} appliedFilter={appliedFilter} setAppliedFilter={setAppliedFilter} isFavoritePage={isFavoritePage} favoriteOptions={favoriteOptions}/>)}
     <div className="line"></div></div>
   );
 }

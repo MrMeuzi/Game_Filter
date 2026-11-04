@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getGamesList } from "../api/games";
+import { MAX_PAGE, PAGE_SIZE, toFavorite } from "../api/gamebrain";
 import wishlist_icon from "../images/wishlist.png";
 import wishlist_icon_added from "../images/wishlist_added.png"
 // Иконки платформ
@@ -32,17 +33,24 @@ import wii from "../images/platforms/Wii.png";
 export default function GameList({ Store = {}, addInStore, page, setTotalPages, textSearch, gameCountSet, countGame, ordering, appliedFilter }) {
   const [games, setGames] = useState([]);
 
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [retry, setRetry] = useState(0);
   useEffect(() => {
-    async function fetchGames() {
-      const gamesData = await getGamesList(page, textSearch, ordering, appliedFilter);
-      console.log("gamesData:", gamesData);
-      setGames(gamesData.results);
-      setTotalPages(Math.ceil(gamesData.count / 20));
-      gameCountSet(Number(gamesData.count));
-
-    }
-    fetchGames();
-  }, [page, setTotalPages, textSearch, ordering, appliedFilter, gameCountSet]);
+    let active = true;
+    setLoading(true);
+    setError("");
+    setGames([]);
+    gameCountSet(0);
+    getGamesList(page, textSearch, ordering, appliedFilter).then(data => {
+      if (!active) return;
+      setGames(data.results);
+      setTotalPages(Math.max(1, Math.min(MAX_PAGE, Math.ceil(data.count / PAGE_SIZE))));
+      gameCountSet(data.count);
+    }).catch(error => { if (active) setError(error.message || "Не удалось загрузить игры."); })
+      .finally(() => { if (active) setLoading(false); });
+    return () => { active = false; };
+  }, [page, setTotalPages, textSearch, ordering, appliedFilter, gameCountSet, retry]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -55,8 +63,8 @@ export default function GameList({ Store = {}, addInStore, page, setTotalPages, 
     if (nameName.includes("xbox")) return "xbox";
     if (nameName.includes("nintendo")) return "nintendo";
     if (nameName.includes("ps")) return "playstation";
-    if (nameName.includes("pc")) return "pc";
-    if (nameName.includes("macos")) return "mac";
+    if (nameName.includes("windows") || nameName.includes("steam deck") || nameName.includes("pc")) return "pc";
+    if (nameName.includes("mac")) return "mac";
     if (nameName.includes("ios")) return "ios";
     if (nameName.includes("android")) return "android";
     if (nameName.includes("linux")) return "linux";
@@ -111,6 +119,9 @@ export default function GameList({ Store = {}, addInStore, page, setTotalPages, 
     wii: wii
   }
 
+  if (loading) return <div className="Card__loading" role="status">Загрузка игр...</div>;
+  if (error) return <div className="Card__loading" role="alert">{error}<br /><button onClick={() => setRetry(value => value + 1)}>Повторить</button></div>;
+  if (!games.length) return <div className="Card__loading">Игры не найдены. Попробуйте изменить запрос или фильтры.</div>;
   return (
     <div className="gameList__wrapper">
       {games.map((game) => {
@@ -124,7 +135,7 @@ export default function GameList({ Store = {}, addInStore, page, setTotalPages, 
         const consoles = platforms.map((platform) => platform.platform?.name).filter(Boolean);
         const siblings = consoles.map(clones);
         const allSiblings = [...new Set(siblings)];
-        const uniqueSiblings = [...new Set(siblings)].slice(0, 3);
+        const uniqueSiblings = [...new Set(siblings)].filter(key => IMPORT_ICON[key]).slice(0, 3);
         const hiddenSiblings = allSiblings.length - uniqueSiblings.length;
 
         const title = String(game.name ?? "");
@@ -132,12 +143,12 @@ export default function GameList({ Store = {}, addInStore, page, setTotalPages, 
         return (
           <div className="gameList__item" key={game.id}>
             <Link to={`/game/${game.id}`} className="gameList__item-link">
-            <img src={game.background_image} alt="" className="gameList__item-image" />
+            <img src={game.background_image || undefined} alt={game.name} loading="lazy" className="gameList__item-image" />
             </Link>
             <div className="gameList__item-info">
 
               <div className="gameList__rating-platforms">
-                <span className="gameList__rating">{game.rating}</span>
+                <span className="gameList__rating">{game.rating ?? "—"}</span>
                 <div className={`gameList__platforms ${hiddenSiblings > 0 ? 'gameList__platforms__mores' : ''}`}>
                   {uniqueSiblings.map((sibling) => (
                     <img
@@ -164,24 +175,14 @@ export default function GameList({ Store = {}, addInStore, page, setTotalPages, 
               {<div className={`gameList__item-genres ${hiddenGenres > 0 ? 'gameList__item-genres__mores' : ''}`}>
                 {
                   genresLimit.map((genre) => (
-                    <span className="gameList__genre-item">{genre}</span>
+                    <span key={genre} className="gameList__genre-item">{genre}</span>
                   ))}{hiddenGenres > 0 && (<span className="gameList__genre-item__more">+{hiddenGenres}</span>)}
               </div>}
 
 
               <div className="gameList__item-release-wishlist">
-                <span className="gameList__item-release">Дата выхода: <br></br>{game.released}</span>
-                <img src={Object.hasOwn(Store, game.id) ? wishlist_icon_added : wishlist_icon} className="gameList__widhList-icon" onClick={() => addInStore({
-                  id: game.id,
-                  title: game.name,
-                  background_image: game.background_image,
-                  rating: game.rating,
-                  platforms: allSiblings,
-                  genres: genres,
-                  released: game.released,
-                  metacritic: game.metacritic,
-                  tags: (game.tags ?? []).map(tag => tag.name)
-                })} />
+                <span className="gameList__item-release">Дата выхода: <br></br>{game.released ?? "Нет данных"}</span>
+                <img src={Object.hasOwn(Store, game.id) ? wishlist_icon_added : wishlist_icon} className="gameList__widhList-icon" alt="Избранное" onClick={() => addInStore(toFavorite(game))} />
               </div>
             </div>
           </div>

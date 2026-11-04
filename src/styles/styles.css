@@ -1607,3 +1607,9 @@ margin-bottom: 1rem;
   font-size: .75rem;
 }
 }
+.source-credit { text-align: center; padding: 24px 16px; color: #b8b8b8; }
+.source-credit a { color: inherit; text-decoration: underline; }
+.Card__loading button { margin: 16px 8px; padding: 10px 20px; cursor: pointer; }
+.Card__video-player { border: 0; aspect-ratio: 16 / 9; }
+.filter__item > select { max-width: 100%; padding: 8px; margin: 8px 0; }
+.filter__item > .date { max-width: 100%; margin: 16px 0; }

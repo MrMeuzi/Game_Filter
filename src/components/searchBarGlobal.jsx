@@ -6,7 +6,7 @@ const navigate = useNavigate();
     <form className="input__wrapper" onSubmit={(e) => {
       e.preventDefault();
       onSearchChange(inputValue);
-      navigate("/");
+      navigate(inputValue.trim() ? "/?search=" + encodeURIComponent(inputValue.trim()) : "/");
     }}>
       <input className="input__input" placeholder="Найти на Game_Filter" type="search" enterKeyHint="search"
         value={inputValue}

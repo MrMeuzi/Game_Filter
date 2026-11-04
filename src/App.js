@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 import './styles/styles.css';
 import Header from './components/header.jsx';
 import Home from './pages/home.jsx';
@@ -8,7 +8,8 @@ import NotFound from './pages/notFound.jsx';
 import useFavoritesStore from './components/favoritesStore.jsx';
 import GameDetails from './pages/gameDetails.jsx';
 
-function App() {
+function AppContent() {
+    const location = useLocation();
     const hash = window.location.hash;
     const queryString = hash.split("?")[1] || ""
     const urlSostoyanie = new URLSearchParams(queryString);
@@ -17,9 +18,10 @@ function App() {
 
 const [searchInput, setSearchInput] = useState(urlSostoyanieGet);
 
+    useEffect(() => { setSearchInput(new URLSearchParams(location.search).get("search") || ""); }, [location.search]);
     const { favStore, addInStore } = useFavoritesStore();
   return (
-    <HashRouter>
+    <>
       <Header searchInput={searchInput} setSearchInput={setSearchInput} searchText={searchText} setSearchText={setSearchText}
 />
       <Routes>
@@ -28,8 +30,8 @@ const [searchInput, setSearchInput] = useState(urlSostoyanieGet);
         <Route path="*" element={<NotFound />} />
         <Route path="/game/:id" element={<GameDetails Store={favStore} addInStore={addInStore}/>} />
       </Routes>
-    </HashRouter>
+    <footer className="source-credit">Данные об играх: <a href="https://gamebrain.co/api" target="_blank" rel="noreferrer">GameBrain</a></footer></>
   );
 }
 
-export default App;
+export default function App() { return <HashRouter><AppContent /></HashRouter>; }

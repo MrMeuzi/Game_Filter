@@ -1,0 +1,2052 @@
+[
+  {
+    "key": "review_rating",
+    "name": "Review Rating",
+    "values": [
+      {
+        "key": "brilliant",
+        "name": "Brilliant (95+)"
+      },
+      {
+        "key": "amazing",
+        "name": "Amazing (90+)"
+      },
+      {
+        "key": "great",
+        "name": "Great (80+)"
+      },
+      {
+        "key": "good",
+        "name": "Good (70+)"
+      }
+    ]
+  },
+  {
+    "key": "release_date",
+    "name": "Release Date",
+    "values": [
+      {
+        "key": "next_month",
+        "name": "Next Month"
+      },
+      {
+        "key": "last_month",
+        "name": "Last Month"
+      },
+      {
+        "key": "last_year",
+        "name": "Last Year"
+      },
+      {
+        "key": "last_5_years",
+        "name": "Last 5 Years"
+      }
+    ]
+  },
+  {
+    "key": "platform",
+    "name": "Platform",
+    "values": [
+      {
+        "key": "amazon_fire_tv",
+        "name": "Amazon Fire TV"
+      },
+      {
+        "key": "amazon_luna",
+        "name": "Amazon Luna"
+      },
+      {
+        "key": "amiga",
+        "name": "Amiga"
+      },
+      {
+        "key": "amstrad_cpc",
+        "name": "Amstrad CPC"
+      },
+      {
+        "key": "android",
+        "name": "Android"
+      },
+      {
+        "key": "apple_ii",
+        "name": "Apple II"
+      },
+      {
+        "key": "atari_2600",
+        "name": "Atari 2600"
+      },
+      {
+        "key": "atari_8_bit",
+        "name": "Atari 8-Bit"
+      },
+      {
+        "key": "atari_st",
+        "name": "Atari ST"
+      },
+      {
+        "key": "bally_astrocade",
+        "name": "Bally Astrocade"
+      },
+      {
+        "key": "blackberry_os",
+        "name": "Blackberry OS"
+      },
+      {
+        "key": "cloud_platform",
+        "name": "Cloud Platform"
+      },
+      {
+        "key": "commodore_c64",
+        "name": "Commodore C 64/128"
+      },
+      {
+        "key": "dreamcast",
+        "name": "Dreamcast"
+      },
+      {
+        "key": "ea_origin",
+        "name": "EA Origin"
+      },
+      {
+        "key": "epic_games",
+        "name": "Epic Games"
+      },
+      {
+        "key": "evercade",
+        "name": "Evercade"
+      },
+      {
+        "key": "game_boy",
+        "name": "Gameboy"
+      },
+      {
+        "key": "game_boy_advance",
+        "name": "Game Boy Advance"
+      },
+      {
+        "key": "gog_com",
+        "name": "Gog Com"
+      },
+      {
+        "key": "ios",
+        "name": "iOS"
+      },
+      {
+        "key": "ipad",
+        "name": "iPad"
+      },
+      {
+        "key": "linux",
+        "name": "Linux"
+      },
+      {
+        "key": "mac_os",
+        "name": "Mac OS"
+      },
+      {
+        "key": "mobile_platform",
+        "name": "Mobile Phone"
+      },
+      {
+        "key": "ms_dos",
+        "name": "MS DOS"
+      },
+      {
+        "key": "msx",
+        "name": "Msx"
+      },
+      {
+        "key": "neo_geo_pocket",
+        "name": "Neo Geo Pocket"
+      },
+      {
+        "key": "netflix",
+        "name": "Netflix"
+      },
+      {
+        "key": "nintendo_3ds",
+        "name": "Nintendo 3DS"
+      },
+      {
+        "key": "nintendo_64",
+        "name": "Nintendo 64"
+      },
+      {
+        "key": "nintendo_ds",
+        "name": "Nintendo DS"
+      },
+      {
+        "key": "nintendo_dsi",
+        "name": "Nintendo DSi"
+      },
+      {
+        "key": "nintendo_gamecube",
+        "name": "Nintendo Gamecube"
+      },
+      {
+        "key": "nintendo_switch",
+        "name": "Nintendo Switch"
+      },
+      {
+        "key": "nintendo_switch-2",
+        "name": "Nintendo Switch 2"
+      },
+      {
+        "key": "nvidia_geforce_now",
+        "name": "Nvidia Geforce Now"
+      },
+      {
+        "key": "oculus_quest",
+        "name": "Oculus Quest"
+      },
+      {
+        "key": "oculus_rift",
+        "name": "Oculus Rift"
+      },
+      {
+        "key": "oculus_vr",
+        "name": "Oculus VR"
+      },
+      {
+        "key": "ouya",
+        "name": "Ouya"
+      },
+      {
+        "key": "pc",
+        "name": "PC"
+      },
+      {
+        "key": "phone",
+        "name": "Phone"
+      },
+      {
+        "key": "playdate",
+        "name": "Playdate"
+      },
+      {
+        "key": "playstation_2",
+        "name": "Playstation 2"
+      },
+      {
+        "key": "playstation_3",
+        "name": "Playstation 3"
+      },
+      {
+        "key": "playstation_4",
+        "name": "Playstation 4"
+      },
+      {
+        "key": "playstation_5",
+        "name": "Playstation 5"
+      },
+      {
+        "key": "playstation_portable",
+        "name": "Playstation Portable"
+      },
+      {
+        "key": "playstation_vita",
+        "name": "Playstation Vita"
+      },
+      {
+        "key": "playstation_vr",
+        "name": "PlayStation VR"
+      },
+      {
+        "key": "playstation_vr2",
+        "name": "Playstation VR2"
+      },
+      {
+        "key": "satellaview",
+        "name": "Satellaview"
+      },
+      {
+        "key": "sega_32x",
+        "name": "Sega 32X"
+      },
+      {
+        "key": "sega_game_gear",
+        "name": "Sega Game Gear"
+      },
+      {
+        "key": "sega_master_system",
+        "name": "Sega Master System"
+      },
+      {
+        "key": "sega_mega_drive",
+        "name": "Sega Mega Drive"
+      },
+      {
+        "key": "sega_pico",
+        "name": "Sega Pico"
+      },
+      {
+        "key": "sega_saturn",
+        "name": "Sega Saturn"
+      },
+      {
+        "key": "steam_deck",
+        "name": "Steam Deck"
+      },
+      {
+        "key": "super_nintendo",
+        "name": "Super Nintendo"
+      },
+      {
+        "key": "tablet",
+        "name": "Tablet"
+      },
+      {
+        "key": "uplay",
+        "name": "UPlay"
+      },
+      {
+        "key": "virtual_boy",
+        "name": "Virtual Boy"
+      },
+      {
+        "key": "virtual_reality",
+        "name": "Virtual Reality"
+      },
+      {
+        "key": "web_browser",
+        "name": "Browser"
+      },
+      {
+        "key": "wii",
+        "name": "Wii"
+      },
+      {
+        "key": "wii_u",
+        "name": "Wii U"
+      },
+      {
+        "key": "windows",
+        "name": "Windows"
+      },
+      {
+        "key": "windows_mixed_reality",
+        "name": "Windows Mixed Reality"
+      },
+      {
+        "key": "windows_phone",
+        "name": "Windows Phone"
+      },
+      {
+        "key": "wonderswan",
+        "name": "Wonderswan"
+      },
+      {
+        "key": "wonderswan_color",
+        "name": "Wonderswan Color"
+      },
+      {
+        "key": "x_box_cloud_gaming",
+        "name": "Xbox Cloud Gaming"
+      },
+      {
+        "key": "x_box_game_pass",
+        "name": "Xbox Game Pass"
+      },
+      {
+        "key": "xbox_360",
+        "name": "XBox 360"
+      },
+      {
+        "key": "xbox_one",
+        "name": "XBox One"
+      },
+      {
+        "key": "xbox_series_xs",
+        "name": "Xbox Series X|S"
+      },
+      {
+        "key": "zeebo",
+        "name": "Zeebo"
+      },
+      {
+        "key": "zx_spectrum",
+        "name": "ZX Spectrum"
+      }
+    ]
+  },
+  {
+    "key": "genre",
+    "name": "Genre",
+    "values": [
+      {
+        "key": "2d_platformer",
+        "name": "2D Platformer"
+      },
+      {
+        "key": "3d_platformer",
+        "name": "3D Platformer"
+      },
+      {
+        "key": "4x",
+        "name": "4X"
+      },
+      {
+        "key": "action",
+        "name": "Action"
+      },
+      {
+        "key": "action_adventure",
+        "name": "Action-Adventure"
+      },
+      {
+        "key": "action_rts",
+        "name": "Action RTS"
+      },
+      {
+        "key": "adventure",
+        "name": "Adventure"
+      },
+      {
+        "key": "arcade",
+        "name": "Arcade"
+      },
+      {
+        "key": "arena_shooter",
+        "name": "Arena Shooter"
+      },
+      {
+        "key": "automobile_simulator",
+        "name": "Automobile Simulator"
+      },
+      {
+        "key": "card_game",
+        "name": "Card Game"
+      },
+      {
+        "key": "casual",
+        "name": "Casual"
+      },
+      {
+        "key": "city_builder",
+        "name": "City Builder"
+      },
+      {
+        "key": "dating_simulator",
+        "name": "Dating Simulator"
+      },
+      {
+        "key": "extraction_shooter",
+        "name": "Extraction Shooter"
+      },
+      {
+        "key": "farming_simulator",
+        "name": "Farming Simulator"
+      },
+      {
+        "key": "fighting",
+        "name": "Fighting"
+      },
+      {
+        "key": "first_person_shooter",
+        "name": "First Person Shooter"
+      },
+      {
+        "key": "hack_and_slash",
+        "name": "Hack and Slash"
+      },
+      {
+        "key": "interactive_fiction",
+        "name": "Interactive Fiction"
+      },
+      {
+        "key": "job_simulator",
+        "name": "Job Simulator"
+      },
+      {
+        "key": "jrpg",
+        "name": "JRPG"
+      },
+      {
+        "key": "looter_shooter",
+        "name": "Looter Shooter"
+      },
+      {
+        "key": "management",
+        "name": "Management"
+      },
+      {
+        "key": "musical",
+        "name": "Musical"
+      },
+      {
+        "key": "on_rails_shooter",
+        "name": "On-Rails Shooter"
+      },
+      {
+        "key": "open_world",
+        "name": "Open World"
+      },
+      {
+        "key": "party",
+        "name": "Party"
+      },
+      {
+        "key": "pinball",
+        "name": "Pinball"
+      },
+      {
+        "key": "platformer",
+        "name": "Platformer"
+      },
+      {
+        "key": "point_and_click",
+        "name": "Point and Click"
+      },
+      {
+        "key": "political_simulator",
+        "name": "Political Simulator"
+      },
+      {
+        "key": "puzzle",
+        "name": "Puzzle"
+      },
+      {
+        "key": "quiz",
+        "name": "Quiz"
+      },
+      {
+        "key": "racing",
+        "name": "Racing"
+      },
+      {
+        "key": "real_time_strategy",
+        "name": "Real Time Strategy"
+      },
+      {
+        "key": "real_time_tactical",
+        "name": "Real Time Tactics"
+      },
+      {
+        "key": "role_playing",
+        "name": "Role Playing"
+      },
+      {
+        "key": "sandbox",
+        "name": "Sandbox"
+      },
+      {
+        "key": "shoot_em_up",
+        "name": "Shoot 'Em Up"
+      },
+      {
+        "key": "shooter",
+        "name": "Shooter"
+      },
+      {
+        "key": "side_scroller",
+        "name": "Side Scroller"
+      },
+      {
+        "key": "simulation",
+        "name": "Simulation"
+      },
+      {
+        "key": "space_simulator",
+        "name": "Space Simulator"
+      },
+      {
+        "key": "sport",
+        "name": "Sport"
+      },
+      {
+        "key": "stealth",
+        "name": "Stealth"
+      },
+      {
+        "key": "strategy",
+        "name": "Strategy"
+      },
+      {
+        "key": "survival",
+        "name": "Survival"
+      },
+      {
+        "key": "survival_horror",
+        "name": "Survival Horror"
+      },
+      {
+        "key": "tactical",
+        "name": "Tactical"
+      },
+      {
+        "key": "third_person_shooter",
+        "name": "Third Person Shooter"
+      },
+      {
+        "key": "top_down_shooter",
+        "name": "Top-Down Shooter"
+      },
+      {
+        "key": "trading_card_game",
+        "name": "Trading Card Game"
+      },
+      {
+        "key": "turn_based_strategy",
+        "name": "Turn Based Strategy"
+      },
+      {
+        "key": "turn_based_tactical",
+        "name": "Turn-Based Tactics"
+      },
+      {
+        "key": "visual_novel",
+        "name": "Visual Novel"
+      },
+      {
+        "key": "walking_simulator",
+        "name": "Walking Simulator"
+      },
+      {
+        "key": "word_game",
+        "name": "Word Game"
+      }
+    ]
+  },
+  {
+    "key": "theme",
+    "name": "Theme",
+    "values": [
+      {
+        "key": "anime",
+        "name": "Anime"
+      },
+      {
+        "key": "business",
+        "name": "Business"
+      },
+      {
+        "key": "comedy",
+        "name": "Comedy"
+      },
+      {
+        "key": "dark_fantasy",
+        "name": "Dark Fantasy"
+      },
+      {
+        "key": "drama",
+        "name": "Drama"
+      },
+      {
+        "key": "economy",
+        "name": "Economy"
+      },
+      {
+        "key": "erotic",
+        "name": "Erotic"
+      },
+      {
+        "key": "fantasy",
+        "name": "Fantasy"
+      },
+      {
+        "key": "historical",
+        "name": "Historical"
+      },
+      {
+        "key": "horror",
+        "name": "Horror"
+      },
+      {
+        "key": "kids",
+        "name": "Kids"
+      },
+      {
+        "key": "medieval",
+        "name": "Medieval"
+      },
+      {
+        "key": "mystery",
+        "name": "Mystery"
+      },
+      {
+        "key": "post_apocalyptic",
+        "name": "Post-apocalyptic"
+      },
+      {
+        "key": "romance",
+        "name": "Romance"
+      },
+      {
+        "key": "science_fiction",
+        "name": "Science Fiction"
+      },
+      {
+        "key": "thriller",
+        "name": "Thriller"
+      },
+      {
+        "key": "violence",
+        "name": "Violence"
+      },
+      {
+        "key": "warfare",
+        "name": "Warfare"
+      }
+    ]
+  },
+  {
+    "key": "play_mode",
+    "name": "Play Mode",
+    "values": [
+      {
+        "key": "asynchronous_multiplayer",
+        "name": "Asynchronous Multiplayer"
+      },
+      {
+        "key": "co_op",
+        "name": "Co-Op"
+      },
+      {
+        "key": "four_player_local",
+        "name": "4 Player Local"
+      },
+      {
+        "key": "local_co_op",
+        "name": "Local Co-Op"
+      },
+      {
+        "key": "local_multiplayer",
+        "name": "Local Multi-Player"
+      },
+      {
+        "key": "massively_multiplayer",
+        "name": "Massively Multiplayer"
+      },
+      {
+        "key": "multiplayer",
+        "name": "Multi-Player"
+      },
+      {
+        "key": "online_co_op",
+        "name": "Online Co-Op"
+      },
+      {
+        "key": "pve",
+        "name": "PvE"
+      },
+      {
+        "key": "pvp",
+        "name": "PvP"
+      },
+      {
+        "key": "single_player",
+        "name": "Single-Player"
+      },
+      {
+        "key": "splitscreen",
+        "name": "Split Screen"
+      },
+      {
+        "key": "two_players",
+        "name": "2-Players"
+      }
+    ]
+  },
+  {
+    "key": "tag",
+    "name": "Tag",
+    "values": [
+      {
+        "key": "1980s",
+        "name": "1980s"
+      },
+      {
+        "key": "1990s",
+        "name": "1990's"
+      },
+      {
+        "key": "2_5d",
+        "name": "2.5D"
+      },
+      {
+        "key": "2d",
+        "name": "2D"
+      },
+      {
+        "key": "2d_fighter",
+        "name": "2D Fighter"
+      },
+      {
+        "key": "3d",
+        "name": "3D"
+      },
+      {
+        "key": "3d_fighter",
+        "name": "3D Fighter"
+      },
+      {
+        "key": "3d_vision",
+        "name": "3D Vision"
+      },
+      {
+        "key": "6dof",
+        "name": "6DOF"
+      },
+      {
+        "key": "8_bit_music",
+        "name": "8-bit Music"
+      },
+      {
+        "key": "abstract",
+        "name": "Abstract"
+      },
+      {
+        "key": "action_roguelike",
+        "name": "Action Roguelike"
+      },
+      {
+        "key": "action_rpg",
+        "name": "Action RPG"
+      },
+      {
+        "key": "addictive",
+        "name": "Addictive"
+      },
+      {
+        "key": "agriculture",
+        "name": "Agriculture"
+      },
+      {
+        "key": "aliens",
+        "name": "Aliens"
+      },
+      {
+        "key": "alternate_history",
+        "name": "Alternate History"
+      },
+      {
+        "key": "ambient",
+        "name": "Ambient"
+      },
+      {
+        "key": "america",
+        "name": "America"
+      },
+      {
+        "key": "arcade_enabled",
+        "name": "Play Now"
+      },
+      {
+        "key": "archery",
+        "name": "Archery"
+      },
+      {
+        "key": "artificial_intelligence",
+        "name": "Artificial Intelligence"
+      },
+      {
+        "key": "assassin",
+        "name": "Assassin"
+      },
+      {
+        "key": "asymmetric_vr",
+        "name": "Asymmetric VR"
+      },
+      {
+        "key": "atmospheric",
+        "name": "Atmospheric"
+      },
+      {
+        "key": "atv",
+        "name": "ATV"
+      },
+      {
+        "key": "audio_production",
+        "name": "Audio Production"
+      },
+      {
+        "key": "auto_battler",
+        "name": "Auto Battler"
+      },
+      {
+        "key": "automation",
+        "name": "Automation"
+      },
+      {
+        "key": "base_building",
+        "name": "Base Building"
+      },
+      {
+        "key": "baseball",
+        "name": "Baseball"
+      },
+      {
+        "key": "based_on_a_novel",
+        "name": "Based On A Novel"
+      },
+      {
+        "key": "basketball",
+        "name": "Basketball"
+      },
+      {
+        "key": "battle_royale",
+        "name": "Battle Royale"
+      },
+      {
+        "key": "beautiful",
+        "name": "Beautiful"
+      },
+      {
+        "key": "bikes",
+        "name": "Bikes"
+      },
+      {
+        "key": "birds",
+        "name": "Birds"
+      },
+      {
+        "key": "blood",
+        "name": "Blood"
+      },
+      {
+        "key": "bmx",
+        "name": "BMX"
+      },
+      {
+        "key": "board_game",
+        "name": "Board Game"
+      },
+      {
+        "key": "boomer_shooter",
+        "name": "Boomer Shooter"
+      },
+      {
+        "key": "boss_rush",
+        "name": "Boss Rush"
+      },
+      {
+        "key": "bowling",
+        "name": "Bowling"
+      },
+      {
+        "key": "boxing",
+        "name": "Boxing"
+      },
+      {
+        "key": "building",
+        "name": "Building"
+      },
+      {
+        "key": "bullet_hell",
+        "name": "Bullet Hell"
+      },
+      {
+        "key": "bullet_time",
+        "name": "Bullet Time"
+      },
+      {
+        "key": "capitalism",
+        "name": "Capitalism"
+      },
+      {
+        "key": "card_battler",
+        "name": "Card Battler"
+      },
+      {
+        "key": "cartoon",
+        "name": "Cartoon"
+      },
+      {
+        "key": "cartoony",
+        "name": "Cartoony"
+      },
+      {
+        "key": "cats",
+        "name": "Cats"
+      },
+      {
+        "key": "character_action_game",
+        "name": "Character Action Game"
+      },
+      {
+        "key": "character_customization",
+        "name": "Character Customization"
+      },
+      {
+        "key": "chess",
+        "name": "Chess"
+      },
+      {
+        "key": "choices_matter",
+        "name": "Choices Matter"
+      },
+      {
+        "key": "choose_your_own_adventure",
+        "name": "Choose Your Own Adventure"
+      },
+      {
+        "key": "cinematic",
+        "name": "Cinematic"
+      },
+      {
+        "key": "class_based",
+        "name": "Class-Based"
+      },
+      {
+        "key": "classic",
+        "name": "Classic"
+      },
+      {
+        "key": "clicker",
+        "name": "Clicker"
+      },
+      {
+        "key": "co_op_campaign",
+        "name": "Co-op Campaign"
+      },
+      {
+        "key": "cold_war",
+        "name": "Cold War"
+      },
+      {
+        "key": "collectathon",
+        "name": "Collectathon"
+      },
+      {
+        "key": "colony_sim",
+        "name": "Colony Sim"
+      },
+      {
+        "key": "colorful",
+        "name": "Colorful"
+      },
+      {
+        "key": "combat",
+        "name": "Combat"
+      },
+      {
+        "key": "combat_racing",
+        "name": "Combat Racing"
+      },
+      {
+        "key": "comic_book",
+        "name": "Comic Book"
+      },
+      {
+        "key": "competitive",
+        "name": "Competitive"
+      },
+      {
+        "key": "conspiracy",
+        "name": "Conspiracy"
+      },
+      {
+        "key": "conversation",
+        "name": "Conversation"
+      },
+      {
+        "key": "cooking",
+        "name": "Cooking"
+      },
+      {
+        "key": "cozy",
+        "name": "Cozy"
+      },
+      {
+        "key": "crafting",
+        "name": "Crafting"
+      },
+      {
+        "key": "creature_collector",
+        "name": "Creature Collector"
+      },
+      {
+        "key": "cricket",
+        "name": "Cricket"
+      },
+      {
+        "key": "crime",
+        "name": "Crime"
+      },
+      {
+        "key": "crpg",
+        "name": "CRPG"
+      },
+      {
+        "key": "cult_classic",
+        "name": "Cult Classic"
+      },
+      {
+        "key": "cute",
+        "name": "Cute"
+      },
+      {
+        "key": "cyberpunk",
+        "name": "Cyberpunk"
+      },
+      {
+        "key": "cycling",
+        "name": "Cycling"
+      },
+      {
+        "key": "dark",
+        "name": "Dark"
+      },
+      {
+        "key": "dark_comedy",
+        "name": "Dark Comedy"
+      },
+      {
+        "key": "dark_humor",
+        "name": "Dark Humor"
+      },
+      {
+        "key": "deckbuilding",
+        "name": "Deckbuilding"
+      },
+      {
+        "key": "demons",
+        "name": "Demons"
+      },
+      {
+        "key": "destruction",
+        "name": "Destruction"
+      },
+      {
+        "key": "detective",
+        "name": "Detective"
+      },
+      {
+        "key": "dice",
+        "name": "Dice"
+      },
+      {
+        "key": "difficult",
+        "name": "Difficult"
+      },
+      {
+        "key": "dinosaurs",
+        "name": "Dinosaurs"
+      },
+      {
+        "key": "diplomacy",
+        "name": "Diplomacy"
+      },
+      {
+        "key": "documentary",
+        "name": "Documentary"
+      },
+      {
+        "key": "dog",
+        "name": "Dog"
+      },
+      {
+        "key": "dragons",
+        "name": "Dragons"
+      },
+      {
+        "key": "driving",
+        "name": "Driving"
+      },
+      {
+        "key": "dungeon_crawler",
+        "name": "Dungeon Crawler"
+      },
+      {
+        "key": "dungeons_dragons",
+        "name": "Dungeons & Dragons"
+      },
+      {
+        "key": "dwarf",
+        "name": "Dwarf"
+      },
+      {
+        "key": "dynamic_narration",
+        "name": "Dynamic Narration"
+      },
+      {
+        "key": "dystopian",
+        "name": "Dystopian"
+      },
+      {
+        "key": "early_access",
+        "name": "Early Access"
+      },
+      {
+        "key": "educational",
+        "name": "Educational"
+      },
+      {
+        "key": "electronic",
+        "name": "Electronic"
+      },
+      {
+        "key": "electronic_music",
+        "name": "Electronic Music"
+      },
+      {
+        "key": "elf",
+        "name": "Elf"
+      },
+      {
+        "key": "emotional",
+        "name": "Emotional"
+      },
+      {
+        "key": "epic",
+        "name": "Epic"
+      },
+      {
+        "key": "episodic",
+        "name": "Episodic"
+      },
+      {
+        "key": "escape_room",
+        "name": "Escape Room"
+      },
+      {
+        "key": "esports",
+        "name": "eSports"
+      },
+      {
+        "key": "experience",
+        "name": "Experience"
+      },
+      {
+        "key": "experimental",
+        "name": "Experimental"
+      },
+      {
+        "key": "exploration",
+        "name": "Exploration"
+      },
+      {
+        "key": "faith",
+        "name": "Faith"
+      },
+      {
+        "key": "family_friendly",
+        "name": "Family Friendly"
+      },
+      {
+        "key": "farming",
+        "name": "Farming"
+      },
+      {
+        "key": "fast_paced",
+        "name": "Fast-Paced"
+      },
+      {
+        "key": "female_protagonist",
+        "name": "Female Protagonist"
+      },
+      {
+        "key": "first_person",
+        "name": "First-Person"
+      },
+      {
+        "key": "fishing",
+        "name": "Fishing"
+      },
+      {
+        "key": "flight",
+        "name": "Flight"
+      },
+      {
+        "key": "fmv",
+        "name": "FMV"
+      },
+      {
+        "key": "football_american",
+        "name": "Football (American)"
+      },
+      {
+        "key": "football_soccer",
+        "name": "Football (Soccer)"
+      },
+      {
+        "key": "foreign",
+        "name": "Foreign"
+      },
+      {
+        "key": "fox",
+        "name": "Fox"
+      },
+      {
+        "key": "free_to_play",
+        "name": "Free to Play"
+      },
+      {
+        "key": "funny",
+        "name": "Funny"
+      },
+      {
+        "key": "futuristic",
+        "name": "Futuristic"
+      },
+      {
+        "key": "gambling",
+        "name": "Gambling"
+      },
+      {
+        "key": "gaming",
+        "name": "Gaming"
+      },
+      {
+        "key": "god_game",
+        "name": "God Game"
+      },
+      {
+        "key": "golf",
+        "name": "Golf"
+      },
+      {
+        "key": "gothic",
+        "name": "Gothic"
+      },
+      {
+        "key": "grand_strategy",
+        "name": "Grand Strategy"
+      },
+      {
+        "key": "great_soundtrack",
+        "name": "Great Soundtrack"
+      },
+      {
+        "key": "grid_based_movement",
+        "name": "Grid-Based Movement"
+      },
+      {
+        "key": "gun_customization",
+        "name": "Gun Customization"
+      },
+      {
+        "key": "hacking",
+        "name": "Hacking"
+      },
+      {
+        "key": "hand_drawn",
+        "name": "Hand-drawn"
+      },
+      {
+        "key": "heist",
+        "name": "Heist"
+      },
+      {
+        "key": "hentai",
+        "name": "Hentai"
+      },
+      {
+        "key": "hero_shooter",
+        "name": "Hero Shooter"
+      },
+      {
+        "key": "hex_grid",
+        "name": "Hex Grid"
+      },
+      {
+        "key": "hidden_object",
+        "name": "Hidden Object"
+      },
+      {
+        "key": "hobby_sim",
+        "name": "Hobby Sim"
+      },
+      {
+        "key": "hockey",
+        "name": "Hockey"
+      },
+      {
+        "key": "horses",
+        "name": "Horses"
+      },
+      {
+        "key": "hunting",
+        "name": "Hunting"
+      },
+      {
+        "key": "idler",
+        "name": "Idler"
+      },
+      {
+        "key": "illuminati",
+        "name": "Illuminati"
+      },
+      {
+        "key": "immersive",
+        "name": "Immersive"
+      },
+      {
+        "key": "immersive_sim",
+        "name": "Immersive Sim"
+      },
+      {
+        "key": "indie",
+        "name": "Indie"
+      },
+      {
+        "key": "instrumental_music",
+        "name": "Instrumental Music"
+      },
+      {
+        "key": "intentionally_awkward_controls",
+        "name": "Intentionally Awkward Controls"
+      },
+      {
+        "key": "inventory_management",
+        "name": "Inventory Management"
+      },
+      {
+        "key": "investigation",
+        "name": "Investigation"
+      },
+      {
+        "key": "isometric",
+        "name": "Isometric"
+      },
+      {
+        "key": "jet",
+        "name": "Jet"
+      },
+      {
+        "key": "jump_scare",
+        "name": "Jump Scare"
+      },
+      {
+        "key": "lego",
+        "name": "LEGO"
+      },
+      {
+        "key": "lemmings",
+        "name": "Lemmings"
+      },
+      {
+        "key": "lgbtq",
+        "name": "LGBTQ+"
+      },
+      {
+        "key": "life_sim",
+        "name": "Life Sim"
+      },
+      {
+        "key": "linear",
+        "name": "Linear"
+      },
+      {
+        "key": "logic",
+        "name": "Logic"
+      },
+      {
+        "key": "loot",
+        "name": "Loot"
+      },
+      {
+        "key": "lore_rich",
+        "name": "Lore-Rich"
+      },
+      {
+        "key": "lovecraftian",
+        "name": "Lovecraftian"
+      },
+      {
+        "key": "magic",
+        "name": "Magic"
+      },
+      {
+        "key": "mahjong",
+        "name": "Mahjong"
+      },
+      {
+        "key": "mars",
+        "name": "Mars"
+      },
+      {
+        "key": "martial_arts",
+        "name": "Martial Arts"
+      },
+      {
+        "key": "match_3",
+        "name": "Match 3"
+      },
+      {
+        "key": "mature",
+        "name": "Mature"
+      },
+      {
+        "key": "mechs",
+        "name": "Mechs"
+      },
+      {
+        "key": "medical_sim",
+        "name": "Medical Sim"
+      },
+      {
+        "key": "memes",
+        "name": "Memes"
+      },
+      {
+        "key": "metroidvania",
+        "name": "Metroidvania"
+      },
+      {
+        "key": "military",
+        "name": "Military"
+      },
+      {
+        "key": "mini_golf",
+        "name": "Mini Golf"
+      },
+      {
+        "key": "minigames",
+        "name": "Minigames"
+      },
+      {
+        "key": "minimalist",
+        "name": "Minimalist"
+      },
+      {
+        "key": "mining",
+        "name": "Mining"
+      },
+      {
+        "key": "moba",
+        "name": "MOBA"
+      },
+      {
+        "key": "modern",
+        "name": "Modern"
+      },
+      {
+        "key": "motocross",
+        "name": "Motocross"
+      },
+      {
+        "key": "motorbike",
+        "name": "Motorbike"
+      },
+      {
+        "key": "multiple_endings",
+        "name": "Multiple Endings"
+      },
+      {
+        "key": "music_based_procedural_generation",
+        "name": "Music-Based Procedural Generation"
+      },
+      {
+        "key": "musou",
+        "name": "Musou"
+      },
+      {
+        "key": "mystery_dungeon",
+        "name": "Mystery Dungeon"
+      },
+      {
+        "key": "mythology",
+        "name": "Mythology"
+      },
+      {
+        "key": "narration",
+        "name": "Narration"
+      },
+      {
+        "key": "narrative",
+        "name": "Narrative"
+      },
+      {
+        "key": "nature",
+        "name": "Nature"
+      },
+      {
+        "key": "naval",
+        "name": "Naval"
+      },
+      {
+        "key": "naval_combat",
+        "name": "Naval Combat"
+      },
+      {
+        "key": "ninja",
+        "name": "Ninja"
+      },
+      {
+        "key": "noir",
+        "name": "Noir"
+      },
+      {
+        "key": "nonlinear",
+        "name": "Nonlinear"
+      },
+      {
+        "key": "nostalgia",
+        "name": "Nostalgia"
+      },
+      {
+        "key": "nsfw",
+        "name": "NSFW"
+      },
+      {
+        "key": "offroad",
+        "name": "Offroad"
+      },
+      {
+        "key": "old_school",
+        "name": "Old School"
+      },
+      {
+        "key": "open_world_survival_craft",
+        "name": "Open World Survival Craft"
+      },
+      {
+        "key": "otome",
+        "name": "Otome"
+      },
+      {
+        "key": "outbreak_sim",
+        "name": "Outbreak Sim"
+      },
+      {
+        "key": "parkour",
+        "name": "Parkour"
+      },
+      {
+        "key": "parody",
+        "name": "Parody"
+      },
+      {
+        "key": "party_based_rpg",
+        "name": "Party-Based RPG"
+      },
+      {
+        "key": "perma_death",
+        "name": "Perma Death"
+      },
+      {
+        "key": "philosophical",
+        "name": "Philosophical"
+      },
+      {
+        "key": "physics",
+        "name": "Physics"
+      },
+      {
+        "key": "pirates",
+        "name": "Pirates"
+      },
+      {
+        "key": "pixel_graphics",
+        "name": "Pixel Graphics"
+      },
+      {
+        "key": "politics",
+        "name": "Politics"
+      },
+      {
+        "key": "pool",
+        "name": "Pool"
+      },
+      {
+        "key": "precision_platformer",
+        "name": "Precision Platformer"
+      },
+      {
+        "key": "procedural_generation",
+        "name": "Procedural Generation"
+      },
+      {
+        "key": "psychedelic",
+        "name": "Psychedelic"
+      },
+      {
+        "key": "psychological",
+        "name": "Psychological"
+      },
+      {
+        "key": "psychological_horror",
+        "name": "Psychological Horror"
+      },
+      {
+        "key": "puzzle_platformer",
+        "name": "Puzzle Platformer"
+      },
+      {
+        "key": "quick_time_events",
+        "name": "Quick-Time Events"
+      },
+      {
+        "key": "real_time",
+        "name": "Real-Time"
+      },
+      {
+        "key": "real_time_with_pause",
+        "name": "Real-Time with Pause"
+      },
+      {
+        "key": "realistic",
+        "name": "Realistic"
+      },
+      {
+        "key": "reboot",
+        "name": "Reboot"
+      },
+      {
+        "key": "relaxing",
+        "name": "Relaxing"
+      },
+      {
+        "key": "remake",
+        "name": "Remake"
+      },
+      {
+        "key": "replay_value",
+        "name": "Replay Value"
+      },
+      {
+        "key": "resource_management",
+        "name": "Resource Management"
+      },
+      {
+        "key": "retro",
+        "name": "Retro"
+      },
+      {
+        "key": "robots",
+        "name": "Robots"
+      },
+      {
+        "key": "rock_music",
+        "name": "Rock Music"
+      },
+      {
+        "key": "roguelike",
+        "name": "Roguelike"
+      },
+      {
+        "key": "roguelike_deckbuilder",
+        "name": "Roguelike Deckbuilder"
+      },
+      {
+        "key": "roguelite",
+        "name": "Roguelite"
+      },
+      {
+        "key": "roguevania",
+        "name": "Roguevania"
+      },
+      {
+        "key": "rome",
+        "name": "Rome"
+      },
+      {
+        "key": "rugby",
+        "name": "Rugby"
+      },
+      {
+        "key": "runner",
+        "name": "Runner"
+      },
+      {
+        "key": "sailing",
+        "name": "Sailing"
+      },
+      {
+        "key": "satire",
+        "name": "Satire"
+      },
+      {
+        "key": "science",
+        "name": "Science"
+      },
+      {
+        "key": "score_attack",
+        "name": "Score Attack"
+      },
+      {
+        "key": "sequel",
+        "name": "Sequel"
+      },
+      {
+        "key": "shop_keeper",
+        "name": "Shop Keeper"
+      },
+      {
+        "key": "short",
+        "name": "Short"
+      },
+      {
+        "key": "silent_protagonist",
+        "name": "Silent Protagonist"
+      },
+      {
+        "key": "skateboarding",
+        "name": "Skateboarding"
+      },
+      {
+        "key": "skating",
+        "name": "Skating"
+      },
+      {
+        "key": "skiing",
+        "name": "Skiing"
+      },
+      {
+        "key": "sniper",
+        "name": "Sniper"
+      },
+      {
+        "key": "snooker",
+        "name": "Snooker"
+      },
+      {
+        "key": "snow",
+        "name": "Snow"
+      },
+      {
+        "key": "snowboarding",
+        "name": "Snowboarding"
+      },
+      {
+        "key": "social_deduction",
+        "name": "Social Deduction"
+      },
+      {
+        "key": "sokoban",
+        "name": "Sokoban"
+      },
+      {
+        "key": "solitaire",
+        "name": "Solitaire"
+      },
+      {
+        "key": "souls_like",
+        "name": "Souls-like"
+      },
+      {
+        "key": "soundtrack",
+        "name": "Soundtrack"
+      },
+      {
+        "key": "space",
+        "name": "Space"
+      },
+      {
+        "key": "spaceships",
+        "name": "Spaceships"
+      },
+      {
+        "key": "spectacle_fighter",
+        "name": "Spectacle fighter"
+      },
+      {
+        "key": "spelling",
+        "name": "Spelling"
+      },
+      {
+        "key": "steampunk",
+        "name": "Steampunk"
+      },
+      {
+        "key": "story_rich",
+        "name": "Story Rich"
+      },
+      {
+        "key": "strategy_rpg",
+        "name": "Strategy RPG"
+      },
+      {
+        "key": "stylized",
+        "name": "Stylized"
+      },
+      {
+        "key": "submarine",
+        "name": "Submarine"
+      },
+      {
+        "key": "superhero",
+        "name": "Superhero"
+      },
+      {
+        "key": "supernatural",
+        "name": "Supernatural"
+      },
+      {
+        "key": "surreal",
+        "name": "Surreal"
+      },
+      {
+        "key": "swordplay",
+        "name": "Swordplay"
+      },
+      {
+        "key": "tabletop",
+        "name": "Tabletop"
+      },
+      {
+        "key": "tactical_rpg",
+        "name": "Tactical RPG"
+      },
+      {
+        "key": "tanks",
+        "name": "Tanks"
+      },
+      {
+        "key": "team_based",
+        "name": "Team-Based"
+      },
+      {
+        "key": "tennis",
+        "name": "Tennis"
+      },
+      {
+        "key": "text_based",
+        "name": "Text-Based"
+      },
+      {
+        "key": "third_person",
+        "name": "Third Person"
+      },
+      {
+        "key": "time_attack",
+        "name": "Time Attack"
+      },
+      {
+        "key": "time_management",
+        "name": "Time Management"
+      },
+      {
+        "key": "time_manipulation",
+        "name": "Time Manipulation"
+      },
+      {
+        "key": "time_travel",
+        "name": "Time Travel"
+      },
+      {
+        "key": "top_down",
+        "name": "Top-Down"
+      },
+      {
+        "key": "tower_defense",
+        "name": "Tower Defense"
+      },
+      {
+        "key": "trackir",
+        "name": "TrackIR"
+      },
+      {
+        "key": "trading",
+        "name": "Trading"
+      },
+      {
+        "key": "traditional_roguelike",
+        "name": "Traditional Roguelike"
+      },
+      {
+        "key": "trains",
+        "name": "Trains"
+      },
+      {
+        "key": "transhumanism",
+        "name": "Transhumanism"
+      },
+      {
+        "key": "transportation",
+        "name": "Transportation"
+      },
+      {
+        "key": "turn_based",
+        "name": "Turn-Based"
+      },
+      {
+        "key": "tutorial",
+        "name": "Tutorial"
+      },
+      {
+        "key": "twin_stick_shooter",
+        "name": "Twin Stick Shooter"
+      },
+      {
+        "key": "typing",
+        "name": "Typing"
+      },
+      {
+        "key": "underground",
+        "name": "Underground"
+      },
+      {
+        "key": "underwater",
+        "name": "Underwater"
+      },
+      {
+        "key": "unforgiving",
+        "name": "Unforgiving"
+      },
+      {
+        "key": "vampire",
+        "name": "Vampire"
+      },
+      {
+        "key": "vehicular_combat",
+        "name": "Vehicular Combat"
+      },
+      {
+        "key": "vikings",
+        "name": "Vikings"
+      },
+      {
+        "key": "villain_protagonist",
+        "name": "Villain Protagonist"
+      },
+      {
+        "key": "voice_control",
+        "name": "Voice Control"
+      },
+      {
+        "key": "volleyball",
+        "name": "Volleyball"
+      },
+      {
+        "key": "voxel",
+        "name": "Voxel"
+      },
+      {
+        "key": "war",
+        "name": "War"
+      },
+      {
+        "key": "wargame",
+        "name": "Wargame"
+      },
+      {
+        "key": "warhammer_40k",
+        "name": "Warhammer 40K"
+      },
+      {
+        "key": "well_written",
+        "name": "Well-Written"
+      },
+      {
+        "key": "werewolves",
+        "name": "Werewolves"
+      },
+      {
+        "key": "western",
+        "name": "Western"
+      },
+      {
+        "key": "wholesome",
+        "name": "Wholesome"
+      },
+      {
+        "key": "world_war_i",
+        "name": "World War I"
+      },
+      {
+        "key": "world_war_ii",
+        "name": "World War II"
+      },
+      {
+        "key": "wrestling",
+        "name": "Wrestling"
+      },
+      {
+        "key": "zombies",
+        "name": "Zombies"
+      }
+    ]
+  }
+]

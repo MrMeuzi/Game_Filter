@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { getGamesList } from "../api/games";
+import { useEffect } from "react";
 import wishlist_icon from "../images/wishlist.png";
 import wishlist_icon_added from "../images/wishlist_added.png"
 // Иконки платформ
@@ -46,8 +45,8 @@ useEffect(() => {
     if (nameName.includes("xbox")) return "xbox";
     if (nameName.includes("nintendo")) return "nintendo";
     if (nameName.includes("ps")) return "playstation";
-    if (nameName.includes("pc")) return "pc";
-    if (nameName.includes("macos")) return "mac";
+    if (nameName.includes("windows") || nameName.includes("steam deck") || nameName.includes("pc")) return "pc";
+    if (nameName.includes("mac")) return "mac";
     if (nameName.includes("ios")) return "ios";
     if (nameName.includes("android")) return "android";
     if (nameName.includes("linux")) return "linux";
@@ -115,7 +114,7 @@ const pageItems = (favStore ?? []).slice(start, start + pageSize);
         const siblings = platforms.map(clones).filter(Boolean);
 
         const allSiblings = [...new Set(siblings)];
-        const uniqueSiblings = allSiblings.slice(0, 3);
+        const uniqueSiblings = allSiblings.filter(key => IMPORT_ICON[key]).slice(0, 3);
         const hiddenSiblings = allSiblings.length - uniqueSiblings.length;
 
         const title = String(game.title ?? "");
@@ -127,14 +126,14 @@ const pageItems = (favStore ?? []).slice(start, start + pageSize);
           <div className="gameList__item" key={game.id}>
             <Link to={`/game/${game.id}`} className="gameList__item-link">
             <img
-              src={game.background_image}
+              src={game.background_image || undefined} loading="lazy"
               alt={title}
               className="gameList__item-image"
             />
             </Link>
             <div className="gameList__item-info">
               <div className="gameList__rating-platforms">
-                <span className="gameList__rating">{game.rating}</span>
+                <span className="gameList__rating">{game.rating ?? "—"}</span>
 
                 <div
                   className={`gameList__platforms ${
@@ -192,7 +191,7 @@ const pageItems = (favStore ?? []).slice(start, start + pageSize);
                 </span>
 
                 <img
-                  src={isInStore ? wishlist_icon_added : wishlist_icon? wishlist_icon_added : wishlist_icon}
+                  src={isInStore ? wishlist_icon_added : wishlist_icon}
                   alt={isInStore ? "Убрать из избранного" : "Добавить в избранное"}
                   className="gameList__widhList-icon"
                   onClick={(e) => {

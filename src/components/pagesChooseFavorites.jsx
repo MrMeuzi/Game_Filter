@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useRef } from "react";
 
 export default function PagesChooseFavorites({ page, onPageChange, favStore}) {
@@ -20,11 +19,12 @@ export default function PagesChooseFavorites({ page, onPageChange, favStore}) {
         {active_favorites !== totalPages && (<li className="pagesChoose_skip">...</li>)}
         {active_favorites !== totalPages && (<li className="pagesChoose_noActive" onClick={() => onPageChange(totalPages)}>{totalPages}</li>)}
         <div className="pagesChoose__2row-wrapper">
-          <input placeholder="..." className="pagesChoose__input" ref={inputRef_favorites}></input>
-          <button className="pagesChoose__button"
+          <input aria-label="Номер страницы" type="number" min="1" max={totalPages} placeholder="..." className="pagesChoose__input" ref={inputRef_favorites}></input>
+          <button className="pagesChoose__button" aria-label="Перейти на страницу"
           onClick = {() => {
             const value = inputRef_favorites.current.value;
-            onPageChange(Number(value));
+            const number = Number(value);
+            if (Number.isInteger(number) && number >= 1 && number <= totalPages) onPageChange(number);
           }}
           ></button>
         </div>

@@ -1,94 +1,44 @@
-import { useState, useEffect } from "react";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import SearchResult from "../components/SearchResult";
 import GameListFavorites from "../components/gameListFavorites";
 import PagesChooseFavorites from "../components/pagesChooseFavorites";
+import { emptyFilter } from "../components/filterMenu";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Favorites({searchText, Store, addInStore}) {
-  const [sortedType, setSortedType] = useState("baza");
-  const favoritesGames = Object.values(Store);
-  const zero = 0;
+const names = values => (values || []).map(v => v?.platform?.name || v?.name || v).filter(v => typeof v === "string");
 
+export default function Favorites({ Store, addInStore }) {
+  const [sortedType, setSortedType] = useState("baza");
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState({ ...emptyFilter });
   const navigate = useNavigate();
   const location = useLocation();
-  const [totalPages_favorites, setTotalPages_favorites] = useState(1);
-  const [favoritesSearchText, setFavoritesSearchText] = useState("");
-  const filteredFavorites = favoritesGames.filter(game => game?.title?.toLowerCase().includes(favoritesSearchText.toLowerCase()));
-
-const linkup = new URLSearchParams(location.search);
-const page_favorites = Number(linkup.get("page_favorites")) || 1;
-
-function setPage_favorites(newPage) {
-  navigate(`/favorites?page_favorites=${newPage}`, { replace: true });
-}
-
-  
-  const gamesToShow = favoritesSearchText.trim() ? filteredFavorites : favoritesGames;
-  const initialFilter = {
-  rating: false,
-  metacritic: false,
-  year: "",
-  tags: [],
-  genres: [],
-  platforms: []
-};
-  const [appliedFilterFavorites, setAppliedFilterFavorites] = useState(initialFilter); // результат для отображения в фильтре для избранных игр
-const gamesAfterFilter = gamesToShow.filter(game => {
-    const ratingMatch = !appliedFilterFavorites.rating ? true : game.rating >= 4.5;
-
-    const gameYear = String(game.released ?? "").slice(0, 4);
-    const filterYear = appliedFilterFavorites.year.trim();
-    const yearMatch = !appliedFilterFavorites.year ? true : gameYear === filterYear;
-
-    const metacriticMatch = !appliedFilterFavorites.metacritic ? true : game.metacritic >= 80;
-
-    const gameGenres = (game.genres ?? []).map((genre) => genre?.name || genre).filter(Boolean);
-    const genresMatch = appliedFilterFavorites.genres.length === 0 || appliedFilterFavorites.genres.every((genre) => gameGenres.includes(genre));
-
-    const gamePlatforms = (game.platforms ?? []).map((platforms) => platforms?.platform?.name || platforms?.name || platforms).filter(Boolean);
-    const platformsMatch = appliedFilterFavorites.platforms.length === 0 || appliedFilterFavorites.platforms.every((platform) => gamePlatforms.includes(platform));
-    
-    const gameTag = (game.tags ?? []).map((tag) => tag?.name || tag).filter(Boolean);
-    const tagsMatch = appliedFilterFavorites.tags.length === 0 || appliedFilterFavorites.tags.every((tag) => gameTag.includes(tag))
-    return ratingMatch && yearMatch && metacriticMatch && genresMatch && platformsMatch && tagsMatch;
+  const favorites = useMemo(() => Object.values(Store), [Store]);
+  const options = useMemo(() => Object.fromEntries(["tags", "genres", "platforms"].map(field => [field, [...new Set(favorites.flatMap(g => names(g[field])))].sort((a, b) => a.localeCompare(b))])), [favorites]);
+  const filtered = favorites.filter(g => {
+    if (!(g.title || "").toLowerCase().includes(search.toLowerCase())) return false;
+    if (filter.rating && !(g.rating >= 4.5)) return false;
+    if (filter.year && String(g.released || "").slice(0, 4) !== filter.year.trim()) return false;
+    return ["tags", "genres", "platforms"].every(field => filter[field].every(value => names(g[field]).includes(value)));
   });
-  const sortedFavoritesGames = [...gamesAfterFilter];
-  switch (sortedType) { // сортировка для избранных игр
-      case "baza":
-        break;
-      case "years_release_toOld":
-        sortedFavoritesGames.sort((a, b) => new Date(b.released) - new Date(a.released));
-        break;
-      case "years_release_toNew":
-        sortedFavoritesGames.sort((a, b) => new Date(a.released) - new Date(b.released));
-        break;
-      case "A-Z":
-        sortedFavoritesGames.sort((a, b) => a.title.localeCompare(b.title)); // а вот такое для текста
-        break;
-      case "Z-A":
-        sortedFavoritesGames.sort((a, b) => b.title.localeCompare(a.title));
-        break;
-      case "bestRating":
-        sortedFavoritesGames.sort((a, b) => b.rating - a.rating); // это для чисел
-        break;
-      case "worstRating":
-        sortedFavoritesGames.sort((a, b) => a.rating - b.rating);
-        break;
-      default:
-        break;
-  };
-
-  useEffect(() => {
-    document.title = `Избранные | Страница ${page_favorites} - GameFilter`;
-  }, [page_favorites]);
-
-  return (
-    <div className=''>
-      <SearchResult textSearch={searchText} countGame={sortedFavoritesGames.length} searchValue={favoritesSearchText} setSearchValue={setFavoritesSearchText} setSortedType={setSortedType} sortedType={sortedType} appliedFilter={appliedFilterFavorites} setAppliedFilter={setAppliedFilterFavorites}/>
-      {favoritesGames.length === zero ? (<h2 className="Card__loading">Вы не добавили еще ни одной игры в избранное</h2>) : (<GameListFavorites favStore={sortedFavoritesGames} page={page_favorites} addInStore={addInStore} Store={Store}/>)}
-      <PagesChooseFavorites favStore={sortedFavoritesGames} page={page_favorites} onPageChange={setPage_favorites}/>
-    </div>
-    
-  );
+  filtered.sort((a, b) => {
+    switch (sortedType) {
+      case "bestRating": return (b.rating || 0) - (a.rating || 0);
+      case "worstRating": return (a.rating || 0) - (b.rating || 0);
+      case "years_release_toOld": return String(b.released || "").localeCompare(String(a.released || ""));
+      case "years_release_toNew": return String(a.released || "").localeCompare(String(b.released || ""));
+      case "A-Z": return a.title.localeCompare(b.title);
+      case "Z-A": return b.title.localeCompare(a.title);
+      default: return 0;
+    }
+  });
+  const totalPages = Math.max(1, Math.ceil(filtered.length / 20));
+  const page = Math.max(1, Math.min(totalPages, Math.floor(Number(new URLSearchParams(location.search).get("page_favorites"))) || 1));
+  const setPage = value => navigate("/favorites?page_favorites=" + Math.max(1, Math.min(totalPages, Math.floor(Number(value)) || 1)), { replace: true });
+  useEffect(() => { document.title = "Избранное | Страница " + page + " - GameFilter"; }, [page]);
+  return <div>
+    <SearchResult textSearch={search} countGame={filtered.length} searchValue={search} setSearchValue={value => { setSearch(value); setPage(1); }} setSortedType={value => { setSortedType(value); setPage(1); }} sortedType={sortedType} appliedFilter={filter} setAppliedFilter={value => { setFilter(value); setPage(1); }} favoriteOptions={options} />
+    {!favorites.length ? <h2 className="Card__loading">Вы не добавили ещё ни одной игры в избранное</h2> : !filtered.length ? <div className="Card__loading">По выбранным фильтрам ничего не найдено.</div> : <GameListFavorites favStore={filtered} page={page} addInStore={addInStore} Store={Store} />}
+    <PagesChooseFavorites favStore={filtered} page={page} onPageChange={setPage} />
+  </div>;
 }

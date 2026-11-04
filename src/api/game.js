@@ -1,7 +1,8 @@
-export const API_KEY = process.env.REACT_APP_RAWG_API_KEY
-export const BASE_URL = "https://api.rawg.io/api/games"
+import { request, normalizeGame } from "./gamebrain";
+
 export async function game(id) {
-  const response = await fetch(`${BASE_URL}/${id}?key=${API_KEY}`);
-  const data = await response.json();
-  return data;
+  if (!/^gb-[1-9]\d*$/.test(String(id))) throw new Error("Это сохранённая игра из старого каталога.");
+  const data = await request("/games/" + String(id).slice(3));
+  if (!data.id) throw new Error("Игра не найдена.");
+  return normalizeGame(data);
 }
