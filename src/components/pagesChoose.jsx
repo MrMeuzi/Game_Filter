@@ -18,7 +18,7 @@ export default function PagesChoose({ page, totalPages, onPageChange, gameCount}
         {active !== totalPages && (<li className="pagesChoose_skip">...</li>)}
         {active !== totalPages && (<li className="pagesChoose_noActive" onClick={() => onPageChange(totalPages)}>{totalPages}</li>)}
         <div className="pagesChoose__2row-wrapper">
-          <input aria-label="Номер страницы" type="number" min="1" max={totalPages} placeholder="..." className="pagesChoose__input" ref={inputRef}></input>
+          <input aria-label="Номер страницы" type="text" inputMode="numeric" pattern="[0-9]*" placeholder="..." className="pagesChoose__input" ref={inputRef}></input>
           <button className="pagesChoose__button" aria-label="Перейти на страницу"
           onClick = {() => {
             const value = inputRef.current.value;
